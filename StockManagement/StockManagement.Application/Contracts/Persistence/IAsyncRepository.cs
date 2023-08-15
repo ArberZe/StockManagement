@@ -1,4 +1,4 @@
-﻿namespace StockManagement.Application.Persistence
+﻿namespace StockManagement.Application.Contracts.Persistence
 {
     public interface IAsyncRepository<T> where T : class
     {

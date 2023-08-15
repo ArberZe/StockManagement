@@ -15,9 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{CDD4C265-082E-442B-9365-BBD7DC2CD7F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Domain", "StockManagement.Domain\StockManagement.Domain.csproj", "{81799585-0697-4B91-8C0C-DD5231EE5603}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Domain", "StockManagement.Domain\StockManagement.Domain.csproj", "{81799585-0697-4B91-8C0C-DD5231EE5603}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Application", "StockManagement.Application\StockManagement.Application.csproj", "{779DE5F3-8201-4AA0-AD54-15178B773127}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Application", "StockManagement.Application\StockManagement.Application.csproj", "{779DE5F3-8201-4AA0-AD54-15178B773127}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

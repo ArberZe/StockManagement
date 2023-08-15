@@ -1,6 +1,6 @@
 ﻿using StockManagement.Domain.Entities;
 
-namespace StockManagement.Application.Persistence
+namespace StockManagement.Application.Contracts.Persistence
 {
     public interface IProductRepository : IAsyncRepository<Product>
     {
