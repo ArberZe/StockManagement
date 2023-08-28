@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fKPkulDrs/thHplEYGdbJt+USsoQtXCFx1SqalwEIF6wq0iQp3YX2BA6WbmGPmE0RpcCqlUsk0dvUXPYu4/j4g==",
+  "dgSpecHash": "Dwau6PvQW2VPvtCR2umTsziHSxK01njEL1b/0jUT4VAWVFAIYkuylaAiE7Vtmx0QxXfKIy4Qye8tk+ktebGG7w==",
   "success": true,
   "projectFilePath": "F:\\Projects\\StockManagement\\StockManagement\\StockManagement.Application\\StockManagement.Application.csproj",
   "expectedPackageFiles": [
@@ -15,6 +15,7 @@
     "C:\\Users\\arber\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\arber\\.nuget\\packages\\microsoft.extensions.configuration.binder\\7.0.0\\microsoft.extensions.configuration.binder.7.0.0.nupkg.sha512",
     "C:\\Users\\arber\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\arber\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\arber\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
     "C:\\Users\\arber\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\7.0.0\\microsoft.extensions.options.configurationextensions.7.0.0.nupkg.sha512",
     "C:\\Users\\arber\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",

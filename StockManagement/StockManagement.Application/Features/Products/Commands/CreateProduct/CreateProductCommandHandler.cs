@@ -1,5 +1,6 @@
 using AutoMapper;
 using MediatR;
+using Microsoft.Extensions.Logging;
 using StockManagement.Application.Contracts.Infrastructure;
 using StockManagement.Application.Contracts.Persistence;
 using StockManagement.Application.Models.Mail;
@@ -12,12 +13,17 @@ public class CreateProductCommandHandler: IRequestHandler<CreateProductCommand, 
     private readonly IProductRepository _productRepository;
     private readonly IMapper _mapper;
     private readonly IEmailService _emailService;
+    private readonly ILogger<CreateProductCommandHandler> _logger;
 
-    public CreateProductCommandHandler(IMapper mapper, IProductRepository productRepository, IEmailService emailService)
+    public CreateProductCommandHandler(IMapper mapper, 
+        IProductRepository productRepository, 
+        IEmailService emailService, 
+        ILogger<CreateProductCommandHandler> logger)
     {
         _productRepository = productRepository;
         _mapper = mapper;
         _emailService = emailService;
+        _logger = logger;
     }
     
     public async Task<CreateProductCommandResponse> Handle(CreateProductCommand request, CancellationToken cancellationToken)
@@ -55,6 +61,8 @@ public class CreateProductCommandHandler: IRequestHandler<CreateProductCommand, 
         catch (Exception /*ex*/)
         {
             //this shouldn't stop the API from doing else so this can be logged
+            _logger.LogError($"Mailing about event {@event.EventId} failed due to an error with the mail service: {ex.Message}");
+
         }
 
         return createProductCommandResponse;
