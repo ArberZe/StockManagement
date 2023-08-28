@@ -51,10 +51,5 @@ namespace StockManagement.App.Services
                 return ConvertApiExceptions<CategoryDto>(ex);
             }
         }
-
-        Task<ApiResponse<ViewModels.CategoryDto>> ICategoryDataService.CreateCategory(CategoryViewModel categoryViewModel)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

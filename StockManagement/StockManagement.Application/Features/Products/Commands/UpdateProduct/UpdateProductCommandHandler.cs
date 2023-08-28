@@ -1,13 +1,8 @@
 ﻿using AutoMapper;
-using GloboTicket.TicketManagement.Application.Exceptions;
+using StockManagement.Application.Exceptions;
 using MediatR;
 using StockManagement.Application.Contracts.Persistence;
 using StockManagement.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StockManagement.Application.Features.Products.Commands.UpdateProduct
 {

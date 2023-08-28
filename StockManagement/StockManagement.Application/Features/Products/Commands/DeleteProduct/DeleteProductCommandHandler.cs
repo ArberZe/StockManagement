@@ -1,4 +1,4 @@
-﻿using GloboTicket.TicketManagement.Application.Exceptions;
+﻿using StockManagement.Application.Exceptions;
 using MediatR;
 using StockManagement.Application.Contracts.Persistence;
 using StockManagement.Domain.Entities;

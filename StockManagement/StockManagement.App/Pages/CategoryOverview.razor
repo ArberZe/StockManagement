@@ -1,0 +1,30 @@
+﻿@page "/categoryoverview"
+
+<h3>Categories Overview</h3>
+
+<br />
+
+@if (Categories == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Category name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Categories)
+            {
+                <tr>
+                    <td>@category.Name </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

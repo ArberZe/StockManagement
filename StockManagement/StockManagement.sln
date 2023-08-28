@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Infrastruct
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Api", "StockManagement.Api\StockManagement.Api.csproj", "{78CB698C-1369-4756-BD40-352FAAB4DF64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.App", "StockManagement.App\StockManagement.App.csproj", "{9E4D0883-82C4-45F7-8DA4-17FB4DC4DD9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.App", "StockManagement.App\StockManagement.App.csproj", "{9E4D0883-82C4-45F7-8DA4-17FB4DC4DD9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

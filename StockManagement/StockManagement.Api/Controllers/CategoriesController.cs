@@ -1,10 +1,9 @@
 ﻿using StockManagement.Application.Features.Categories.Commands.CreateCategory;
 using StockManagement.Application.Features.Categories.Queries.GetCategoriesList;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GloboTicket.TicketManagement.Api.Controllers
+namespace StockManagement.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

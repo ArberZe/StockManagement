@@ -1,9 +1,6 @@
-﻿using GloboTicket.TicketManagement.Api.Utility;
+﻿using StockManagement.Api.Utility;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using StockManagement.Application.Features.Categories.Commands.CreateCategory;
-using StockManagement.Application.Features.Categories.Queries.GetCategoriesList;
 using StockManagement.Application.Features.Products.Commands.CreateProduct;
 using StockManagement.Application.Features.Products.Queries.GetProductDetails;
 using StockManagement.Application.Features.Products.Queries.GetProductsExport;

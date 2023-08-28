@@ -1,4 +1,4 @@
-﻿namespace StockManagement.App.Services.Base
+﻿namespace StockManagement.App.Services
 {
     public partial class Client : IClient
     {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GloboTicket.TicketManagement.Api.Utility
+﻿namespace StockManagement.Api.Utility
 {
     [AttributeUsage(AttributeTargets.Method)]
     public class FileResultContentTypeAttribute : Attribute

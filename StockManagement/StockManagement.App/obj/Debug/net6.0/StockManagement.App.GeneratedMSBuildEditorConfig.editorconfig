@@ -28,6 +28,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/Projects/StockManagement/StockManagement/StockManagement.App/Pages/CategoryOverview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcnlPdmVydmlldy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-udyrysmc8r
+
 [F:/Projects/StockManagement/StockManagement/StockManagement.App/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-4l19zzbqgl

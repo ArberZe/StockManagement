@@ -79,13 +79,11 @@ namespace StockManagement.App.Services
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class Client : IClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
 
-        public Client(string baseUrl, System.Net.Http.HttpClient httpClient)
+        public Client(System.Net.Http.HttpClient httpClient)
         {
-            BaseUrl = baseUrl;
             _httpClient = httpClient;
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(CreateSerializerSettings, true);
         }
@@ -95,12 +93,6 @@ namespace StockManagement.App.Services
             var settings = new Newtonsoft.Json.JsonSerializerSettings();
             UpdateJsonSerializerSettings(settings);
             return settings;
-        }
-
-        public string BaseUrl
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
         }
 
         protected Newtonsoft.Json.JsonSerializerSettings JsonSerializerSettings { get { return _settings.Value; } }
@@ -124,7 +116,7 @@ namespace StockManagement.App.Services
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<CategoryListVm>> GetAllCategoriesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Category/all");
+            urlBuilder_.Append("api/Category/all");
 
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -198,7 +190,7 @@ namespace StockManagement.App.Services
         public virtual async System.Threading.Tasks.Task<CreateCategoryCommandResponse> AddCategoryAsync(CreateCategoryCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Category");
+            urlBuilder_.Append("api/Category");
 
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -276,7 +268,7 @@ namespace StockManagement.App.Services
         public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ProductListVm>> GetAllProductsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Products/all");
+            urlBuilder_.Append("api/Products/all");
 
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -353,7 +345,7 @@ namespace StockManagement.App.Services
                 throw new System.ArgumentNullException("id");
 
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Products/{id}");
+            urlBuilder_.Append("api/Products/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
 
             var client_ = _httpClient;
@@ -428,7 +420,7 @@ namespace StockManagement.App.Services
         public virtual async System.Threading.Tasks.Task<CreateProductCommandResponse> AddProductAsync(CreateProductCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Products");
+            urlBuilder_.Append("api/Products");
 
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -504,7 +496,7 @@ namespace StockManagement.App.Services
         public virtual async System.Threading.Tasks.Task<FileResponse> ExportProductsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Products/export");
+            urlBuilder_.Append("api/Products/export");
 
             var client_ = _httpClient;
             var disposeClient_ = false;

@@ -1,9 +1,7 @@
 ﻿using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace GloboTicket.TicketManagement.Api.Utility
+namespace StockManagement.Api.Utility
 {
     public class FileResultContentTypeOperationFilter : IOperationFilter
     {

@@ -1,4 +1,4 @@
-namespace GloboTicket.TicketManagement.Application.Exceptions
+namespace StockManagement.Application.Exceptions
 {
     public class BadRequestException: Exception
     {

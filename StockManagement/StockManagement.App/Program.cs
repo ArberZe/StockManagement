@@ -1,15 +1,26 @@
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
-using Microsoft.Extensions.DependencyInjection;
+using Blazored.LocalStorage;
 using StockManagement.App.Contracts;
 using StockManagement.App.Services;
+using StockManagement.App.Services.Base;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddBlazoredLocalStorage();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+
+
+builder.Services.AddSingleton(new HttpClient
+{
+    BaseAddress = new Uri("https://localhost:7017")
+});
+
+builder.Services.AddHttpClient<IClient, Client>(client => client.BaseAddress = new Uri("https://localhost:7017"));
+
+builder.Services.AddScoped<ICategoryDataService, CategoryDataService>();
 
 var app = builder.Build();
 
@@ -20,19 +31,6 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
-
-builder.Services.AddSingleton(new HttpClient
-{
-    BaseAddress = new Uri("https://localhost:7017")
-});
-
-
-builder.Services.AddHttpClient<IClient, Client>(client => client.BaseAddress = new Uri("https://localhost:7017"));
-
-
-builder.Services.AddScoped<ICategoryDataService, CategoryDataService>();
-
 
 app.UseHttpsRedirection();
 

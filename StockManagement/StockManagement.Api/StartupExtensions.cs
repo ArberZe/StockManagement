@@ -5,7 +5,7 @@ using StockManagement.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.OpenApi.Models;
-using GloboTicket.TicketManagement.Api.Utility;
+using StockManagement.Api.Utility;
 //using Serilog;
 
 namespace StockManagement.Api
