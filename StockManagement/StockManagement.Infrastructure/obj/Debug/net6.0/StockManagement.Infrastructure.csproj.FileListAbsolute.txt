@@ -1,0 +1,17 @@
+F:\Projects\StockManagement\StockManagement\StockManagement.Infrastructure\bin\Debug\net6.0\StockManagement.Infrastructure.deps.json
+F:\Projects\StockManagement\StockManagement\StockManagement.Infrastructure\bin\Debug\net6.0\StockManagement.Infrastructure.dll
+F:\Projects\StockManagement\StockManagement\StockManagement.Infrastructure\bin\Debug\net6.0\StockManagement.Infrastructure.pdb
+F:\Projects\StockManagement\StockManagement\StockManagement.Infrastructure\bin\Debug\net6.0\StockManagement.Application.dll
+F:\Projects\StockManagement\StockManagement\StockManagement.Infrastructure\bin\Debug\net6.0\StockManagement.Domain.dll
+F:\Projects\StockManagement\StockManagement\StockManagement.Infrastructure\bin\Debug\net6.0\StockManagement.Application.pdb
+F:\Projects\StockManagement\StockManagement\StockManagement.Infrastructure\bin\Debug\net6.0\StockManagement.Domain.pdb
+F:\Projects\StockManagement\StockManagement\StockManagement.Infrastructure\obj\Debug\net6.0\StockManagement.Infrastructure.csproj.AssemblyReference.cache
+F:\Projects\StockManagement\StockManagement\StockManagement.Infrastructure\obj\Debug\net6.0\StockManagement.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\StockManagement\StockManagement\StockManagement.Infrastructure\obj\Debug\net6.0\StockManagement.Infrastructure.AssemblyInfoInputs.cache
+F:\Projects\StockManagement\StockManagement\StockManagement.Infrastructure\obj\Debug\net6.0\StockManagement.Infrastructure.AssemblyInfo.cs
+F:\Projects\StockManagement\StockManagement\StockManagement.Infrastructure\obj\Debug\net6.0\StockManagement.Infrastructure.csproj.CoreCompileInputs.cache
+F:\Projects\StockManagement\StockManagement\StockManagement.Infrastructure\obj\Debug\net6.0\StockManagement.Infrastructure.csproj.CopyComplete
+F:\Projects\StockManagement\StockManagement\StockManagement.Infrastructure\obj\Debug\net6.0\StockManagement.Infrastructure.dll
+F:\Projects\StockManagement\StockManagement\StockManagement.Infrastructure\obj\Debug\net6.0\refint\StockManagement.Infrastructure.dll
+F:\Projects\StockManagement\StockManagement\StockManagement.Infrastructure\obj\Debug\net6.0\StockManagement.Infrastructure.pdb
+F:\Projects\StockManagement\StockManagement\StockManagement.Infrastructure\obj\Debug\net6.0\ref\StockManagement.Infrastructure.dll

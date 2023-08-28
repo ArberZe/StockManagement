@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "dgSpecHash": "7/8clAHClVGi1SQTmt5hzs3pTV1xJWcRO4/BpN2kHkDL65tKFOh+YMI2XkPD9dPgKxqSMeXLaFlOTFR7wVG1IA==",
+  "success": true,
+  "projectFilePath": "F:\\Projects\\StockManagement\\StockManagement\\StockManagement.App\\StockManagement.App.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\arber\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\arber\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\arber\\.nuget\\packages\\blazored.localstorage\\4.4.0\\blazored.localstorage.4.4.0.nupkg.sha512",
+    "C:\\Users\\arber\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.0\\microsoft.aspnetcore.authorization.6.0.0.nupkg.sha512",
+    "C:\\Users\\arber\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.0\\microsoft.aspnetcore.components.6.0.0.nupkg.sha512",
+    "C:\\Users\\arber\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.0\\microsoft.aspnetcore.components.analyzers.6.0.0.nupkg.sha512",
+    "C:\\Users\\arber\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\6.0.0\\microsoft.aspnetcore.components.forms.6.0.0.nupkg.sha512",
+    "C:\\Users\\arber\\.nuget\\packages\\microsoft.aspnetcore.components.web\\6.0.0\\microsoft.aspnetcore.components.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\arber\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.0\\microsoft.aspnetcore.metadata.6.0.0.nupkg.sha512",
+    "C:\\Users\\arber\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\arber\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
+    "C:\\Users\\arber\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\arber\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\arber\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\arber\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\arber\\.nuget\\packages\\microsoft.jsinterop\\6.0.0\\microsoft.jsinterop.6.0.0.nupkg.sha512",
+    "C:\\Users\\arber\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\arber\\.nuget\\packages\\system.io.pipelines\\6.0.0\\system.io.pipelines.6.0.0.nupkg.sha512",
+    "C:\\Users\\arber\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,15 @@
+F:\Projects\StockManagement\StockManagement\StockManagement.Application\bin\Debug\net6.0\StockManagement.Application.deps.json
+F:\Projects\StockManagement\StockManagement\StockManagement.Application\bin\Debug\net6.0\StockManagement.Application.dll
+F:\Projects\StockManagement\StockManagement\StockManagement.Application\bin\Debug\net6.0\StockManagement.Application.pdb
+F:\Projects\StockManagement\StockManagement\StockManagement.Application\bin\Debug\net6.0\StockManagement.Domain.dll
+F:\Projects\StockManagement\StockManagement\StockManagement.Application\bin\Debug\net6.0\StockManagement.Domain.pdb
+F:\Projects\StockManagement\StockManagement\StockManagement.Application\obj\Debug\net6.0\StockManagement.Application.csproj.AssemblyReference.cache
+F:\Projects\StockManagement\StockManagement\StockManagement.Application\obj\Debug\net6.0\StockManagement.Application.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\StockManagement\StockManagement\StockManagement.Application\obj\Debug\net6.0\StockManagement.Application.AssemblyInfoInputs.cache
+F:\Projects\StockManagement\StockManagement\StockManagement.Application\obj\Debug\net6.0\StockManagement.Application.AssemblyInfo.cs
+F:\Projects\StockManagement\StockManagement\StockManagement.Application\obj\Debug\net6.0\StockManagement.Application.csproj.CoreCompileInputs.cache
+F:\Projects\StockManagement\StockManagement\StockManagement.Application\obj\Debug\net6.0\StockManagement.Application.csproj.CopyComplete
+F:\Projects\StockManagement\StockManagement\StockManagement.Application\obj\Debug\net6.0\StockManagement.Application.dll
+F:\Projects\StockManagement\StockManagement\StockManagement.Application\obj\Debug\net6.0\refint\StockManagement.Application.dll
+F:\Projects\StockManagement\StockManagement\StockManagement.Application\obj\Debug\net6.0\StockManagement.Application.pdb
+F:\Projects\StockManagement\StockManagement\StockManagement.Application\obj\Debug\net6.0\ref\StockManagement.Application.dll
