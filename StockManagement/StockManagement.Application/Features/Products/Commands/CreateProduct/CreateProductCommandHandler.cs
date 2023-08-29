@@ -41,15 +41,14 @@ public class CreateProductCommandHandler: IRequestHandler<CreateProductCommand, 
             {
                 createProductCommandResponse.ValidationErrors.Add(error.ErrorMessage);
             }
+
+            return createProductCommandResponse;
         }
 
-        if (createProductCommandResponse.Success)
-        {
-            var product = _mapper.Map<Product>(request);
+        var product = _mapper.Map<Product>(request);
 
-            product = await _productRepository.AddAsync(product);
-            createProductCommandResponse.Product = _mapper.Map<CreateProductDto>(product);
-        }
+        product = await _productRepository.AddAsync(product);
+        createProductCommandResponse.Product = _mapper.Map<CreateProductDto>(product);
 
         //Sending email notification to admin address
         var email = new Email() { To = "arberzeka01@gmail.com", Body = $"A new product was created: {request}", Subject = "A new product was created" };
@@ -58,10 +57,9 @@ public class CreateProductCommandHandler: IRequestHandler<CreateProductCommand, 
         {
             await _emailService.SendEmail(email);
         }
-        catch (Exception /*ex*/)
+        catch (Exception ex)
         {
-            //this shouldn't stop the API from doing else so this can be logged
-            _logger.LogError($"Mailing about event {@event.EventId} failed due to an error with the mail service: {ex.Message}");
+            _logger.LogError($"Mailing about event {product.ProductId} failed due to an error with the mail service: {ex.Message}");
 
         }
 
