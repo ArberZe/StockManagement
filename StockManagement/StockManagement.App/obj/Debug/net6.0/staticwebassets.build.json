@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "15iKHm1vDS1wr/Dur4dx3dIFAsDincRHDmHyZndoEWo=",
+  "Hash": "yDquDB6WMC7Au7qWHmQ6wEWgm4fA/gnIm+p5SSMjUP0=",
   "Source": "StockManagement.App",
   "BasePath": "_content/StockManagement.App",
   "Mode": "Default",
@@ -16,6 +16,40 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\arber\\.nuget\\packages\\mudblazor\\6.9.0\\staticwebassets\\MudBlazor.min.css",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\arber\\.nuget\\packages\\mudblazor\\6.9.0\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\arber\\.nuget\\packages\\mudblazor\\6.9.0\\staticwebassets\\MudBlazor.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\arber\\.nuget\\packages\\mudblazor\\6.9.0\\staticwebassets\\MudBlazor.min.js",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\arber\\.nuget\\packages\\mudblazor\\6.9.0\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\arber\\.nuget\\packages\\mudblazor\\6.9.0\\staticwebassets\\MudBlazor.min.js"
+    },
     {
       "Identity": "F:\\Projects\\StockManagement\\StockManagement\\StockManagement.App\\obj\\Debug\\net6.0\\scopedcss\\bundle\\StockManagement.App.styles.css",
       "SourceId": "StockManagement.App",

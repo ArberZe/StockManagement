@@ -2,6 +2,7 @@ using StockManagement.Application.Features.Categories.Commands.CreateCategory;
 using StockManagement.Application.Features.Categories.Queries.GetCategoriesList;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using StockManagement.Application.Features.Categories.Queries.GetCategoriesByCreatedDateDescending;
 
 namespace StockManagement.Api.Controllers
 {
@@ -21,6 +22,14 @@ namespace StockManagement.Api.Controllers
         public async Task<ActionResult<List<CategoryListVm>>> GetAllCategories()
         {
             var dtos = await _mediator.Send(new GetCategoriesListQuery());
+            return Ok(dtos);
+        }
+
+        [HttpGet("createdDateDescending", Name = "GetAllCategoriesByCreatedDateDescending")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<List<CategoryListDescendingOrderedVm>>> GetAllCategoriesByCreatedDateDescendingAsync()
+        {
+            var dtos = await _mediator.Send(new GetCategoriesByCreatedDateDescendingQuery());
             return Ok(dtos);
         }
 

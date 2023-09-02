@@ -1,4 +1,5 @@
 using AutoMapper;
+using StockManagement.App.Contracts;
 using StockManagement.App.Services;
 using StockManagement.App.ViewModels;
 
@@ -12,6 +13,12 @@ namespace StockManagement.App.Profiles
             CreateMap<CategoryListVm, CategoryViewModel>().ReverseMap();
             CreateMap<CreateCategoryCommand, CategoryViewModel>().ReverseMap();
             CreateMap<CreateCategoryDto, CategoryDto>().ReverseMap();
+            CreateMap<CategoryDescendingOrderedViewModel, CategoryListDescendingOrderedVm>().ReverseMap();
+
+            CreateMap<ProductDto, ProductViewModel>().ReverseMap();
+            CreateMap<ProductListVm, ProductViewModel>().ReverseMap();
+            CreateMap<CreateProductCommand, ProductViewModel>().ReverseMap();
+            CreateMap<CreateProductDto, ProductDto>().ReverseMap();
         }
     }
 }

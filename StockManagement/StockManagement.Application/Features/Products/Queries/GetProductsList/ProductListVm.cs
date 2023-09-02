@@ -3,6 +3,7 @@
     public class ProductListVm
     {
         public int ProductId { get; set; }
-        public string? Name { get; set; }
+        public string Name { get; set; } = String.Empty;
+        public decimal SellingPrice { get; set; }
     }
 }

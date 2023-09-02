@@ -24,6 +24,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/Projects/StockManagement/StockManagement/StockManagement.App/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/Projects/StockManagement/StockManagement/StockManagement.App/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -31,6 +35,10 @@ build_metadata.AdditionalFiles.CssScope =
 [F:/Projects/StockManagement/StockManagement/StockManagement.App/Pages/CategoryOverview.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcnlPdmVydmlldy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-udyrysmc8r
+
+[F:/Projects/StockManagement/StockManagement/StockManagement.App/Pages/ProductOverview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdE92ZXJ2aWV3LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-qdmuvk6k7c
 
 [F:/Projects/StockManagement/StockManagement/StockManagement.App/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=

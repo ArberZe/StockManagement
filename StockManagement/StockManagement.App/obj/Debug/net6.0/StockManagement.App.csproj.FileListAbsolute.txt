@@ -40,3 +40,12 @@ F:\Projects\StockManagement\StockManagement\StockManagement.App\bin\Debug\net6.0
 F:\Projects\StockManagement\StockManagement\StockManagement.App\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Authorization.dll
 F:\Projects\StockManagement\StockManagement\StockManagement.App\bin\Debug\net6.0\Microsoft.AspNetCore.Metadata.dll
 F:\Projects\StockManagement\StockManagement\StockManagement.App\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+F:\Projects\StockManagement\StockManagement\StockManagement.App\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Forms.dll
+F:\Projects\StockManagement\StockManagement\StockManagement.App\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Web.dll
+F:\Projects\StockManagement\StockManagement\StockManagement.App\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+F:\Projects\StockManagement\StockManagement\StockManagement.App\bin\Debug\net6.0\Microsoft.Extensions.Localization.dll
+F:\Projects\StockManagement\StockManagement\StockManagement.App\bin\Debug\net6.0\Microsoft.Extensions.Localization.Abstractions.dll
+F:\Projects\StockManagement\StockManagement\StockManagement.App\bin\Debug\net6.0\Microsoft.JSInterop.dll
+F:\Projects\StockManagement\StockManagement\StockManagement.App\bin\Debug\net6.0\MudBlazor.dll
+F:\Projects\StockManagement\StockManagement\StockManagement.App\bin\Debug\net6.0\System.IO.Pipelines.dll
+F:\Projects\StockManagement\StockManagement\StockManagement.App\obj\Debug\net6.0\scopedcss\Pages\ProductOverview.razor.rz.scp.css

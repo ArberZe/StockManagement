@@ -40,7 +40,7 @@ public class StockManagementDbContext: DbContext
         {
             ProductId = 1,
             Name = "Red Bull",
-            SellingPrice = (decimal)1.50,
+            SellingPrice = 1.50m,
             CategoryId = 2
         });
         
@@ -48,7 +48,7 @@ public class StockManagementDbContext: DbContext
         {
             ProductId = 2,
             Name = "Coca Cola",
-            SellingPrice = (decimal)0.70,
+            SellingPrice = 0.70m,
             CategoryId = 2
         });
     }

@@ -2,9 +2,12 @@ using Blazored.LocalStorage;
 using StockManagement.App.Contracts;
 using StockManagement.App.Services;
 using StockManagement.App.Services.Base;
+using MudBlazor.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddMudServices();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddBlazoredLocalStorage();
 
@@ -21,6 +24,7 @@ builder.Services.AddSingleton(new HttpClient
 builder.Services.AddHttpClient<IClient, Client>(client => client.BaseAddress = new Uri("https://localhost:7017"));
 
 builder.Services.AddScoped<ICategoryDataService, CategoryDataService>();
+builder.Services.AddScoped<IProductDataService, ProductDataService>();
 
 var app = builder.Build();
 

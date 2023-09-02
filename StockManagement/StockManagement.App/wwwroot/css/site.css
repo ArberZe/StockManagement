@@ -62,3 +62,15 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+    /**************/
+
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+    }
+}
+
+.mud-card-action-button {
+    text-align: center;
+}

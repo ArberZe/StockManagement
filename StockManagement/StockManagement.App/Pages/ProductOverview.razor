@@ -1,0 +1,37 @@
+﻿@using System.Net.Http.Json
+@page "/productoverview"
+
+<div class="container-fluid d-flex flex-column align-items-center">
+    <h3 class="mt-2">Categories Overview</h3>
+
+    <br />
+
+    @if (Products.Count == 0)
+    {
+        <p><em>Loading...</em></p>
+        <MudProgressCircular Color="Color.Success" Indeterminate="true" />
+    }
+    else
+    {
+        <MudSimpleTable Style="overflow-x: auto; width: fit-content;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Emri Produktit</th>
+                    <th>Cmimi i shitjes</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Products)
+                {
+                    <tr>
+                        <td>@product.ProductId</td>
+                        <td>@product.Name </td>
+                        <td class="text-end" > @product.SellingPrice</td>
+                    </tr>
+                }
+            </tbody>
+        </MudSimpleTable>
+    }
+</div>
+

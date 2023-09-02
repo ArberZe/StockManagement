@@ -21,7 +21,7 @@ namespace StockManagement.Api.Controllers
 
         [HttpGet("all", Name = "GetAllProducts")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<List<ProductListVm>>> GetAllCategories()
+        public async Task<ActionResult<List<ProductListVm>>> GetAllProducts()
         {
             var dtos = await _mediator.Send(new GetProductsListQuery());
             return Ok(dtos);

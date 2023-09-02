@@ -24,11 +24,21 @@ namespace StockManagement.App.Services
 
         }
 
+        public async Task<List<CategoryDescendingOrderedViewModel>> GetAllCategoriesByCreatedDateDescending()
+        {
+            //await AddBearerToken();
+
+            var allCategories = await _client.GetAllCategoriesByCreatedDateDescendingAsync();
+            var mappedCategories = _mapper.Map<ICollection<CategoryDescendingOrderedViewModel>>(allCategories);
+            return mappedCategories.ToList();
+
+        }
+
         public async Task<ApiResponse<CategoryDto>> CreateCategory(CategoryViewModel categoryViewModel)
         {
             try
             {
-                ApiResponse<CategoryDto> apiResponse = new ApiResponse<CategoryDto>();
+                ApiResponse<CategoryDto> apiResponse = new();
                 CreateCategoryCommand createCategoryCommand = _mapper.Map<CreateCategoryCommand>(categoryViewModel);
                 var createCategoryCommandResponse = await _client.AddCategoryAsync(createCategoryCommand);
                 if (createCategoryCommandResponse.Success)
