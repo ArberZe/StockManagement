@@ -20,15 +20,15 @@ namespace StockManagement.App.Services.Base
         {
             if (ex.StatusCode == 400)
             {
-                return new ApiResponse<Guid>() { Message = "Validation errors have occured.", ValidationErrors = ex.Response, Success = false };
+                return new ApiResponse<Guid>() { Message = "Validimi deshtoi.", ValidationErrors = ex.Response, Success = false };
             }
             else if (ex.StatusCode == 404)
             {
-                return new ApiResponse<Guid>() { Message = "The requested item could not be found.", Success = false };
+                return new ApiResponse<Guid>() { Message = "Nuk u gjet asnje rezultat.", Success = false };
             }
             else
             {
-                return new ApiResponse<Guid>() { Message = "Something went wrong, please try again.", Success = false };
+                return new ApiResponse<Guid>() { Message = "Dicka deshtoi, provoni perseri.", Success = false };
             }
         }
 

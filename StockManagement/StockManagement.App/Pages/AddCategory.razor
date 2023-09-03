@@ -1,0 +1,23 @@
+﻿@page "/addcategory"
+
+<div class="container-fluid d-flex flex-column align-items-center">
+    <h3 class="mt-2">Kategori e re</h3>
+
+    <div class="alert @MessageClass" role="alert">@Message</div>
+
+    <EditForm Model="@CategoryViewModel" OnValidSubmit="@HandleValidSubmit">
+
+        <DataAnnotationsValidator />
+        <ValidationSummary></ValidationSummary>
+        
+        <div class="form-group">
+            <label for="name" class="col-sm-6 form-label">Emri kategorise:</label>
+            <div class="col-sm-8">
+                <InputText id="name" class="form-control" @bind-Value="@CategoryViewModel.Name" placeholder="Emri kategorise"></InputText>
+                <ValidationMessage For="@(() => CategoryViewModel.Name)" />
+            </div>
+        </div>
+
+        <button type="submit" class="submit-button mt-3 btn btn-primary">Ruaj</button>
+    </EditForm>
+</div>

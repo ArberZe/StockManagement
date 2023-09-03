@@ -748,7 +748,7 @@ namespace StockManagement.App.Services
         public int CategoryId { get; set; }
 
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Name { get; set; }
+        public string Name { get; set; }
 
     }
 

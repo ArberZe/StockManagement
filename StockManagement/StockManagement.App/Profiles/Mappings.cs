@@ -12,7 +12,7 @@ namespace StockManagement.App.Profiles
             CreateMap<CategoryDto, CategoryViewModel>().ReverseMap();
             CreateMap<CategoryListVm, CategoryViewModel>().ReverseMap();
             CreateMap<CreateCategoryCommand, CategoryViewModel>().ReverseMap();
-            CreateMap<CreateCategoryDto, CategoryDto>().ReverseMap();
+            CreateMap<CreateCategoryDto, CategoryDto>();
             CreateMap<CategoryDescendingOrderedViewModel, CategoryListDescendingOrderedVm>().ReverseMap();
 
             CreateMap<ProductDto, ProductViewModel>().ReverseMap();

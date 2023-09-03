@@ -9,5 +9,7 @@ namespace StockManagement.App.Contracts
         Task<List<CategoryViewModel>> GetAllCategories();
         Task<List<CategoryDescendingOrderedViewModel>> GetAllCategoriesByCreatedDateDescending();
         Task<ApiResponse<CategoryDto>> CreateCategory(CategoryViewModel categoryViewModel);
+
+
     }
 }

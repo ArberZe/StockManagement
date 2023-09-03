@@ -2,10 +2,12 @@
 @page "/categoryoverview"
 
 <div class="container-fluid d-flex flex-column align-items-center">
-    <h3 class="mt-2">Categories Overview</h3>
+    <h3 class="mt-2">Kategorite</h3>
 
     <br />
 
+    <MudLink Href="/addcategory" Underline="Underline.Always" Class="btn" >Shto Kategori</MudLink>
+    <br />
     @if (Categories.Count == 0)
     {
         <p><em>Loading...</em></p>
