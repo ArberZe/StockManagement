@@ -13,11 +13,11 @@ namespace StockManagement.App.Pages
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
-        public ICollection<CategoryDescendingOrderedViewModel> Categories { get; set; } = new List<CategoryDescendingOrderedViewModel>();
+        public ICollection<CategoryViewModel> Categories { get; set; } = new List<CategoryViewModel>();
 
         protected async override Task OnInitializedAsync()
         {
-            Categories = await CategoryDataService.GetAllCategoriesByCreatedDateDescending();
+            Categories = await CategoryDataService.GetAllCategories();
         }
     }
 }

@@ -23,7 +23,7 @@ namespace StockManagement.Application.Features.Categories.Queries.GetCategoriesL
 
         public async Task<List<CategoryListVm>> Handle(GetCategoriesListQuery request, CancellationToken cancellationToken)
         {
-            var allCategories = await _categoryRepository.ListAllAsync();
+            var allCategories = (await _categoryRepository.ListAllAsync()).OrderByDescending(e => e.CreatedDate);
             return _mapper.Map<List<CategoryListVm>>(allCategories);
         }
     }
