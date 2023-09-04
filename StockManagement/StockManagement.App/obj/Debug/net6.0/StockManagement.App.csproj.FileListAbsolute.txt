@@ -50,3 +50,4 @@ F:\Projects\StockManagement\StockManagement\StockManagement.App\bin\Debug\net6.0
 F:\Projects\StockManagement\StockManagement\StockManagement.App\bin\Debug\net6.0\System.IO.Pipelines.dll
 F:\Projects\StockManagement\StockManagement\StockManagement.App\obj\Debug\net6.0\scopedcss\Pages\ProductOverview.razor.rz.scp.css
 F:\Projects\StockManagement\StockManagement\StockManagement.App\obj\Debug\net6.0\scopedcss\Pages\AddCategory.razor.rz.scp.css
+F:\Projects\StockManagement\StockManagement\StockManagement.App\obj\Debug\net6.0\scopedcss\Pages\AddProduct.razor.rz.scp.css

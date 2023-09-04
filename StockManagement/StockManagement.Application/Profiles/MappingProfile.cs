@@ -18,6 +18,7 @@ namespace StockManagement.Application.Profiles
             CreateMap<Product, ProductDetailsVm>().ReverseMap();
             CreateMap<Product, CreateProductCommand>().ReverseMap();
             CreateMap<Product, UpdateProductCommand>().ReverseMap();
+            CreateMap<Product, CreateProductDto>();
 
             CreateMap<Category, CategoryListVm>().ReverseMap();
             CreateMap<Category, CategoryDto>();

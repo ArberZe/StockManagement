@@ -820,7 +820,7 @@ namespace StockManagement.App.Services
         public int CategoryId { get; set; }
 
         [Newtonsoft.Json.JsonProperty("sellingPrice", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double SellingPrice { get; set; }
+        public decimal SellingPrice { get; set; }
 
     }
 
