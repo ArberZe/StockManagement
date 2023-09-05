@@ -43,6 +43,7 @@ namespace StockManagement.Persistence.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CategoryId");
@@ -97,7 +98,7 @@ namespace StockManagement.Persistence.Migrations
 
                     b.HasKey("ProductId");
 
-                    b.ToTable("ProductsType");
+                    b.ToTable("Products");
 
                     b.HasData(
                         new
@@ -107,7 +108,7 @@ namespace StockManagement.Persistence.Migrations
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Red Bull",
-                            SellingPrice = 1.5m
+                            SellingPrice = 1.50m
                         },
                         new
                         {
@@ -116,7 +117,7 @@ namespace StockManagement.Persistence.Migrations
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Coca Cola",
-                            SellingPrice = 0.7m
+                            SellingPrice = 0.70m
                         });
                 });
 #pragma warning restore 612, 618

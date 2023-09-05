@@ -3,6 +3,7 @@ using Blazored.LocalStorage;
 using StockManagement.App.Contracts;
 using StockManagement.App.Services.Base;
 using StockManagement.App.ViewModels;
+using StockManagement.Application.Features.Products.Commands.UpdateProduct;
 using System.Linq;
 
 namespace StockManagement.App.Services
@@ -20,6 +21,27 @@ namespace StockManagement.App.Services
             var allProducts = await _client.GetAllProductsAsync();
             var mappedProducts = _mapper.Map<ICollection<ProductViewModel>>(allProducts);
             return mappedProducts.ToList();
+        }
+
+        public async Task<ProductDetailsViewModel> GetProductById(int id)
+        {
+            var selectedProduct = await _client.GetProductByIdAsync(id);
+            var mappedProduct = _mapper.Map<ProductDetailsViewModel>(selectedProduct);
+            return mappedProduct;
+        }
+
+        public async Task<ApiResponse<int>> UpdateProduct(ProductDetailsViewModel productDetailViewModel)
+        {
+            try
+            {
+                UpdateProductCommand updateProductCommand = _mapper.Map<UpdateProductCommand>(productDetailViewModel);
+                await _client.UpdateProductAsync(updateProductCommand);
+                return new ApiResponse<int>() { Success = true };
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiExceptions<int>(ex);
+            }
         }
 
         public async Task<ApiResponse<ProductDto>> CreateProduct(ProductViewModel productViewModel)

@@ -22,3 +22,5 @@ var app = builder
 await app.ResetDatabaseAsync();
 
 app.Run();
+
+public partial class Program { }

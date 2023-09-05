@@ -28,7 +28,7 @@ namespace StockManagement.App.Services.Base
             }
             else
             {
-                return new ApiResponse<Guid>() { Message = "Dicka deshtoi, provoni perseri.", Success = false };
+                return new ApiResponse<Guid>() { Message = "Dicka deshtoi, provoni perseri.", ValidationErrors = ex.Response, Success = false };
             }
         }
 

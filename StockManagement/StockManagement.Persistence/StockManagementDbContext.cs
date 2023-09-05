@@ -8,10 +8,9 @@ public class StockManagementDbContext: DbContext
 {
     public StockManagementDbContext(DbContextOptions<StockManagementDbContext> options): base(options)
     {
-        
     }
 
-    public DbSet<Product> ProductsType { get; set; } = default!;
+    public DbSet<Product> Products { get; set; } = default!;
     public DbSet<Category> Categories { get; set; } = default!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -69,4 +68,6 @@ public class StockManagementDbContext: DbContext
         }
         return base.SaveChangesAsync(cancellationToken);
     }
+
+
 }

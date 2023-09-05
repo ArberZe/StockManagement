@@ -5,6 +5,7 @@ using StockManagement.Application.Features.Products.Commands.CreateProduct;
 using StockManagement.Application.Features.Products.Queries.GetProductDetails;
 using StockManagement.Application.Features.Products.Queries.GetProductsExport;
 using StockManagement.Application.Features.Products.Queries.GetProductsList;
+using StockManagement.Application.Features.Products.Commands.UpdateProduct;
 
 namespace StockManagement.Api.Controllers
 {
@@ -39,6 +40,16 @@ namespace StockManagement.Api.Controllers
         {
             var response = await _mediator.Send(createProductCommand);
             return Ok(response);
+        }
+
+        [HttpPut(Name = "UpdateProduct")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult> Update([FromBody] UpdateProductCommand updateProductCommand)
+        {
+            await _mediator.Send(updateProductCommand);
+            return NoContent();
         }
 
         [HttpGet("export", Name = "ExportProducts")]

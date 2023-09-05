@@ -2,7 +2,6 @@ using StockManagement.Application;
 using StockManagement.Infrastructure;
 using StockManagement.Persistence;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.OpenApi.Models;
 using StockManagement.Api.Utility;
 //using Serilog;

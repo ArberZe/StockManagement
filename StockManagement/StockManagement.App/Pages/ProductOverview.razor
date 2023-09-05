@@ -21,6 +21,7 @@
                     <th>ID</th>
                     <th>Emri Produktit</th>
                     <th>Cmimi i shitjes</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,6 +31,7 @@
                         <td>@product.ProductId</td>
                         <td>@product.Name </td>
                         <td class="text-end" > @product.SellingPrice</td>
+                        <td><a href="@($"editproduct/{product.ProductId}")">Edito</a></td>
                     </tr>
                 }
             </tbody>
