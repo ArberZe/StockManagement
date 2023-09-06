@@ -39,6 +39,7 @@ public class StockManagementDbContext: DbContext
         {
             ProductId = 1,
             Name = "Red Bull",
+            Description = "Pije energjike",
             SellingPrice = 1.50m,
             CategoryId = 2
         });
@@ -47,6 +48,7 @@ public class StockManagementDbContext: DbContext
         {
             ProductId = 2,
             Name = "Coca Cola",
+            Description = "Pije freskuese",
             SellingPrice = 0.70m,
             CategoryId = 2
         });

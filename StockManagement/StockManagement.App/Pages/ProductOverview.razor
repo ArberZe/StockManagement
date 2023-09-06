@@ -31,7 +31,11 @@
                         <td>@product.ProductId</td>
                         <td>@product.Name </td>
                         <td class="text-end" > @product.SellingPrice</td>
-                        <td><a href="@($"editproduct/{product.ProductId}")">Edito</a></td>
+                        <td>
+                            <a href="@($"editproduct/{product.ProductId}")">Edito</a>
+                            <br />
+                            <a href="@($"productdetails/{product.ProductId}")">Detajet</a>
+                        </td>
                     </tr>
                 }
             </tbody>

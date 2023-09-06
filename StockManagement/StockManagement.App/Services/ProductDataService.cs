@@ -16,25 +16,32 @@ namespace StockManagement.App.Services
             _mapper = mapper;
         }
 
-        public async Task<List<ProductViewModel>> GetAllProducts()
+        public async Task<List<ProductListViewModel>> GetAllProducts()
         {
             var allProducts = await _client.GetAllProductsAsync();
-            var mappedProducts = _mapper.Map<ICollection<ProductViewModel>>(allProducts);
+            var mappedProducts = _mapper.Map<ICollection<ProductListViewModel>>(allProducts);
             return mappedProducts.ToList();
         }
 
-        public async Task<ProductDetailsViewModel> GetProductById(int id)
+        public async Task<ProductViewModel> GetProductById(int id)
+        {
+            var selectedProduct = await _client.GetProductByIdAsync(id);
+            var mappedProduct = _mapper.Map<ProductViewModel>(selectedProduct);
+            return mappedProduct;
+        }
+
+        public async Task<ProductDetailsViewModel> GetProductDetailsById(int id)
         {
             var selectedProduct = await _client.GetProductByIdAsync(id);
             var mappedProduct = _mapper.Map<ProductDetailsViewModel>(selectedProduct);
             return mappedProduct;
         }
 
-        public async Task<ApiResponse<int>> UpdateProduct(ProductDetailsViewModel productDetailViewModel)
+        public async Task<ApiResponse<int>> UpdateProduct(ProductViewModel productViewModel)
         {
             try
             {
-                UpdateProductCommand updateProductCommand = _mapper.Map<UpdateProductCommand>(productDetailViewModel);
+                UpdateProductCommand updateProductCommand = _mapper.Map<UpdateProductCommand>(productViewModel);
                 await _client.UpdateProductAsync(updateProductCommand);
                 return new ApiResponse<int>() { Success = true };
             }
@@ -44,7 +51,7 @@ namespace StockManagement.App.Services
             }
         }
 
-        public async Task<ApiResponse<ProductDto>> CreateProduct(ProductViewModel productViewModel)
+        public async Task<ApiResponse<ProductDto>> CreateProduct(ProductListViewModel productViewModel)
         {
             try
             {

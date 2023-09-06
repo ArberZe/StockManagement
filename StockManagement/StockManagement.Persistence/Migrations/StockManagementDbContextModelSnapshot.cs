@@ -84,6 +84,9 @@ namespace StockManagement.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -106,6 +109,7 @@ namespace StockManagement.Persistence.Migrations
                             ProductId = 1,
                             CategoryId = 2,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Pije energjike",
                             LastModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Red Bull",
                             SellingPrice = 1.50m
@@ -115,6 +119,7 @@ namespace StockManagement.Persistence.Migrations
                             ProductId = 2,
                             CategoryId = 2,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Pije freskuese",
                             LastModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Coca Cola",
                             SellingPrice = 0.70m

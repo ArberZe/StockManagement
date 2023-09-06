@@ -16,7 +16,7 @@ namespace StockManagement.App.Pages
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
-        public ProductViewModel ProductViewModel { get; set; } 
+        public ProductListViewModel ProductViewModel { get; set; } 
         public string Message { get; set; }
         private string MessageClass { get; set; } = String.Empty;
 
@@ -24,7 +24,7 @@ namespace StockManagement.App.Pages
 
         protected override void OnInitialized()
         {
-            ProductViewModel = new ProductViewModel();
+            ProductViewModel = new ProductListViewModel();
         }
         protected async override Task OnInitializedAsync()
         {
@@ -43,6 +43,7 @@ namespace StockManagement.App.Pages
             {
                 Message = "Produkti u shtua!";
                 MessageClass = "alert-success";
+                NavigationManager.NavigateTo("/productoverview");
             }
             else
             {

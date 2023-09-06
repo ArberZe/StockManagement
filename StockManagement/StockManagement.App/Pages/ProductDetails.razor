@@ -1,0 +1,20 @@
+﻿@page "/productdetails/{id}"
+
+<div class="container-fluid d-flex flex-column align-items-center">
+    <h3 class="mt-2">Detajet e produktit</h3>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="imazhi i produktit">
+        <div class="card-body">
+            <h5 class="card-title text-center">@productDetailsViewModel.Name</h5>
+            <p class="card-text text-center">@productDetailsViewModel.Description</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Kategoria:</strong>@productDetailsViewModel.Category?.Name</li>
+            <li class="list-group-item"><strong>Cmimi:</strong>@productDetailsViewModel.SellingPrice €</li>
+            <li class="list-group-item"><strong>Id:</strong>@productDetailsViewModel.ProductId</li>
+        </ul>
+        <div class="card-body">
+            <a href="@($"editproduct/{Id}")" class="card-link underline">Edito</a>
+        </div>
+    </div>
+</div>
