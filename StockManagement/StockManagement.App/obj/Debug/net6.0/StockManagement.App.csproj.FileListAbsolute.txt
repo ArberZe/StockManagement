@@ -68,3 +68,4 @@ F:\Projects\StockManagement\StockManagement\StockManagement.App\obj\Debug\net6.0
 F:\Projects\StockManagement\StockManagement\StockManagement.App\obj\Debug\net6.0\StockManagement.App.pdb
 F:\Projects\StockManagement\StockManagement\StockManagement.App\obj\Debug\net6.0\StockManagement.App.genruntimeconfig.cache
 F:\Projects\StockManagement\StockManagement\StockManagement.App\obj\Debug\net6.0\ref\StockManagement.App.dll
+F:\Projects\StockManagement\StockManagement\StockManagement.App\obj\Debug\net6.0\scopedcss\Pages\CountryOverview.razor.rz.scp.css

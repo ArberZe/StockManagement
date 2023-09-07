@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <Folder Include="Features\Companies\" />
-    <Folder Include="Features\Countries\" />
+    <Folder Include="Features\Countries\Commands\" />
     <Folder Include="Features\Suppliers\" />
   </ItemGroup>
 

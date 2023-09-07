@@ -7,6 +7,7 @@ using StockManagement.Application.Features.Products.Queries.GetProductDetails;
 using StockManagement.Application.Features.Products.Queries.GetProductsList;
 using StockManagement.Application.Features.Categories.Queries.GetCategoriesByCreatedDateDescending;
 using StockManagement.Domain.Entities;
+using StockManagement.Application.Features.Countries.Queries.GetCountryList;
 
 namespace StockManagement.Application.Profiles
 {
@@ -26,6 +27,8 @@ namespace StockManagement.Application.Profiles
             CreateMap<Category, CreateCategoryDto>();
 
             CreateMap<Category, CategoryListDescendingOrderedVm>().ReverseMap();
+
+            CreateMap<Country, CountryListVm>();
 
            
         }

@@ -1,0 +1,35 @@
+﻿@page "/countryoverview"
+
+<div class="container-fluid d-flex flex-column align-items-center">
+    <h3 class="mt-2">Shtetet</h3>
+
+    <br />
+    <MudLink Href="/addcategory" Underline="Underline.Always" Class="btn">Shto shtet</MudLink>
+    <br />
+    @if (Countries.Count == 0)
+    {
+        <p><em>Loading...</em></p>
+        <MudProgressCircular Color="Color.Success" Indeterminate="true" />
+    }
+    else
+    {
+        <MudSimpleTable Style="overflow-x: auto; width: fit-content;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Emri shtetit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var country in Countries)
+                {
+                    <tr>
+                        <td>@country.CountryId</td>
+                        <td>@country.Name </td>
+                    </tr>
+                }
+            </tbody>
+        </MudSimpleTable>
+    }
+</div>
+

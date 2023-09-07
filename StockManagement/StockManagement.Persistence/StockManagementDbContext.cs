@@ -10,6 +10,7 @@ public class StockManagementDbContext: DbContext
     {
     }
 
+    public DbSet<Country> Countries { get; set; } = default!;
     public DbSet<Product> Products { get; set; } = default!;
     public DbSet<Category> Categories { get; set; } = default!;
 
@@ -22,7 +23,19 @@ public class StockManagementDbContext: DbContext
         var drinkGuid = Guid.Parse("{6313179F-7837-473A-A4D5-A5571B43E6A6}");
         //var playGuid = Guid.Parse("{BF3F3002-7E53-441E-8B76-F6280BE284AA}");
         //var conferenceGuid = Guid.Parse("{FE98F549-E790-4E9F-AA16-18C2292A2EE9}");
-        
+
+        modelBuilder.Entity<Country>().HasData(new Country
+        {
+            CountryId = 1,
+            Name = "Kosovë"
+        });
+
+        modelBuilder.Entity<Country>().HasData(new Country
+        {
+            CountryId = 2,
+            Name = "Gjermani"
+        });
+
         modelBuilder.Entity<Category>().HasData(new Category
         {
             CategoryId = 1,

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using StockManagement.App.Contracts;
 using StockManagement.App.Services.Base;
+using StockManagement.App.Services;
 using StockManagement.App.ViewModels;
 
 namespace StockManagement.App.Pages

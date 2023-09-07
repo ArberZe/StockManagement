@@ -27,6 +27,8 @@ namespace StockManagement.App.Profiles
                 .ForMember(dest => dest.CategoryId,
                 act => act.MapFrom(src => src.Category.CategoryId));
 
+            CreateMap<CountryListVm, CountryListViewModel>();
+
         }
     }
 }

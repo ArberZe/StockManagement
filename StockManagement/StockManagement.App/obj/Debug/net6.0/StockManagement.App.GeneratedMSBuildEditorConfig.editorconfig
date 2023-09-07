@@ -44,6 +44,10 @@ build_metadata.AdditionalFiles.CssScope = b-b5ccanr3t1
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcnlPdmVydmlldy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-udyrysmc8r
 
+[F:/Projects/StockManagement/StockManagement/StockManagement.App/Pages/CountryOverview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRyeU92ZXJ2aWV3LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-f0z6lze8uw
+
 [F:/Projects/StockManagement/StockManagement/StockManagement.App/Pages/EditProduct.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFByb2R1Y3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-i1pylgz3hb
