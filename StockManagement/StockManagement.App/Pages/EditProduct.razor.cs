@@ -13,7 +13,10 @@ namespace StockManagement.App.Pages
         [Inject]
         public ICategoryDataService CategoryDataService { get; set; }
 
-        public ProductDetailsViewModel ProductDetailViewModel { get; set; } = new ProductDetailsViewModel();
+        [Inject]
+        public NavigationManager NavigationManager { get; set; }
+
+        public ProductViewModel ProductViewModel { get; set; } = new();
         public IEnumerable<CategoryViewModel> Categories { get; set; } = new List<CategoryViewModel>();
         public string Message { get; set; }
         private string MessageClass { get; set; } = String.Empty;
@@ -24,13 +27,13 @@ namespace StockManagement.App.Pages
 
         protected async override Task OnInitializedAsync()
         {
-            ProductDetailViewModel = await ProductDataService.GetProductById(int.Parse(Id));
+            ProductViewModel = await ProductDataService.GetProductById(int.Parse(Id));
             Categories = await CategoryDataService.GetAllCategories();
         }
 
         protected async Task HandleValidSubmit()
         {
-            var response = await ProductDataService.UpdateProduct(ProductDetailViewModel);
+            var response = await ProductDataService.UpdateProduct(ProductViewModel);
             HandleResponse(response);
         }
 
@@ -38,8 +41,9 @@ namespace StockManagement.App.Pages
         {
             if (response.Success)
             {
-                Message = "Produkti u shtua!";
+                Message = "Produkti u editua!";
                 MessageClass = "alert-success";
+                NavigationManager.NavigateTo($"/productdetails/{Id}");
             }
             else
             {

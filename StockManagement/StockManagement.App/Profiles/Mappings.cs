@@ -16,14 +16,20 @@ namespace StockManagement.App.Profiles
             //CreateMap<Category, CategoryDto>();
             CreateMap<CategoryDescendingOrderedViewModel, CategoryListDescendingOrderedVm>().ReverseMap();
 
-            CreateMap<ProductDto, ProductViewModel>().ReverseMap();
-            CreateMap<ProductListVm, ProductViewModel>().ReverseMap();
-            CreateMap<CreateProductCommand, ProductViewModel>().ReverseMap();
+            CreateMap<ProductDto, ProductListViewModel>().ReverseMap();
+            CreateMap<ProductListVm, ProductListViewModel>().ReverseMap();
+            CreateMap<CreateProductCommand, ProductListViewModel>().ReverseMap();
             CreateMap<CreateProductDto, ProductDto>().ReverseMap();
-            CreateMap<ProductDetailsViewModel, UpdateProductCommand>().ReverseMap();
-            CreateMap<ProductDetailsViewModel, ProductDetailsVm>().ReverseMap();
-            CreateMap<ProductDetailsVm, ProductDetailsViewModel>().ForMember(dest => dest.CategoryId,
+            //CreateMap<ProductDetailsViewModel, UpdateProductCommand>().ReverseMap();
+            CreateMap<ProductViewModel, UpdateProductCommand>();
+            CreateMap<ProductDetailsVm, ProductDetailsViewModel>();
+            CreateMap<ProductDetailsVm, ProductViewModel>()
+                .ForMember(dest => dest.CategoryId,
                 act => act.MapFrom(src => src.Category.CategoryId));
+
+            CreateMap<CountryListVm, CountryListViewModel>();
+            CreateMap<CountryViewModel, CreateCountryCommand>();
+
         }
     }
 }

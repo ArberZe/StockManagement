@@ -1,9 +1,3 @@
-F:\Projects\StockManagement\StockManagement\StockManagement.Api\obj\Debug\net6.0\StockManagement.Api.csproj.AssemblyReference.cache
-F:\Projects\StockManagement\StockManagement\StockManagement.Api\obj\Debug\net6.0\StockManagement.Api.GeneratedMSBuildEditorConfig.editorconfig
-F:\Projects\StockManagement\StockManagement\StockManagement.Api\obj\Debug\net6.0\StockManagement.Api.AssemblyInfoInputs.cache
-F:\Projects\StockManagement\StockManagement\StockManagement.Api\obj\Debug\net6.0\StockManagement.Api.AssemblyInfo.cs
-F:\Projects\StockManagement\StockManagement\StockManagement.Api\obj\Debug\net6.0\StockManagement.Api.csproj.CoreCompileInputs.cache
-F:\Projects\StockManagement\StockManagement\StockManagement.Api\obj\Debug\net6.0\StockManagement.Api.MvcApplicationPartsAssemblyInfo.cache
 F:\Projects\StockManagement\StockManagement\StockManagement.Api\bin\Debug\net6.0\appsettings.Development.json
 F:\Projects\StockManagement\StockManagement\StockManagement.Api\bin\Debug\net6.0\appsettings.json
 F:\Projects\StockManagement\StockManagement\StockManagement.Api\bin\Debug\net6.0\StockManagement.Api.exe
@@ -97,7 +91,13 @@ F:\Projects\StockManagement\StockManagement\StockManagement.Api\bin\Debug\net6.0
 F:\Projects\StockManagement\StockManagement\StockManagement.Api\bin\Debug\net6.0\StockManagement.Infrastructure.pdb
 F:\Projects\StockManagement\StockManagement\StockManagement.Api\bin\Debug\net6.0\StockManagement.Persistence.pdb
 F:\Projects\StockManagement\StockManagement\StockManagement.Api\bin\Debug\net6.0\StockManagement.Domain.pdb
+F:\Projects\StockManagement\StockManagement\StockManagement.Api\obj\Debug\net6.0\StockManagement.Api.csproj.AssemblyReference.cache
+F:\Projects\StockManagement\StockManagement\StockManagement.Api\obj\Debug\net6.0\StockManagement.Api.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\StockManagement\StockManagement\StockManagement.Api\obj\Debug\net6.0\StockManagement.Api.AssemblyInfoInputs.cache
+F:\Projects\StockManagement\StockManagement\StockManagement.Api\obj\Debug\net6.0\StockManagement.Api.AssemblyInfo.cs
+F:\Projects\StockManagement\StockManagement\StockManagement.Api\obj\Debug\net6.0\StockManagement.Api.csproj.CoreCompileInputs.cache
 F:\Projects\StockManagement\StockManagement\StockManagement.Api\obj\Debug\net6.0\StockManagement.Api.MvcApplicationPartsAssemblyInfo.cs
+F:\Projects\StockManagement\StockManagement\StockManagement.Api\obj\Debug\net6.0\StockManagement.Api.MvcApplicationPartsAssemblyInfo.cache
 F:\Projects\StockManagement\StockManagement\StockManagement.Api\obj\Debug\net6.0\staticwebassets\msbuild.StockManagement.Api.Microsoft.AspNetCore.StaticWebAssets.props
 F:\Projects\StockManagement\StockManagement\StockManagement.Api\obj\Debug\net6.0\staticwebassets\msbuild.build.StockManagement.Api.props
 F:\Projects\StockManagement\StockManagement\StockManagement.Api\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.StockManagement.Api.props

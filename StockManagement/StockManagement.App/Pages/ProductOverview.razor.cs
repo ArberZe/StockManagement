@@ -13,7 +13,7 @@ namespace StockManagement.App.Pages
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
-        public ICollection<ProductViewModel> Products { get; set; } = new List<ProductViewModel>();
+        public ICollection<ProductListViewModel> Products { get; set; } = new List<ProductListViewModel>();
 
         protected async override Task OnInitializedAsync()
         {

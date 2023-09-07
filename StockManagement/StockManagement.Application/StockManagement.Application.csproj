@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Features\Companies\" />
-    <Folder Include="Features\Countries\" />
     <Folder Include="Features\Suppliers\" />
   </ItemGroup>
 
