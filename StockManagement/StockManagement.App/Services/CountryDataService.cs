@@ -23,5 +23,33 @@ namespace StockManagement.App.Services
             return mappedCountries.ToList();
 
         }
+        public async Task<ApiResponse<CreateCountryDto>> CreateCountry(CountryViewModel countryViewModel)
+        {
+            try
+            {
+                ApiResponse<CreateCountryDto> apiResponse = new();
+                CreateCountryCommand createCountryCommand = _mapper.Map<CreateCountryCommand>(countryViewModel);
+                var createCountryCommandResponse = await _client.AddCountryAsync(createCountryCommand);
+                if (createCountryCommandResponse.Success)
+                {
+                    //ndoshta nuk ka nevoje qe te behet map rreshti poshte
+                    apiResponse.Data = _mapper.Map<CreateCountryDto>(createCountryCommandResponse.Country);
+                    apiResponse.Success = true;
+                }
+                else
+                {
+                    apiResponse.Data = null;
+                    foreach (var error in createCountryCommandResponse.ValidationErrors)
+                    {
+                        apiResponse.ValidationErrors += error + Environment.NewLine;
+                    }
+                }
+                return apiResponse;
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiExceptions<CreateCountryDto>(ex);
+            }
+        }
     }
 }

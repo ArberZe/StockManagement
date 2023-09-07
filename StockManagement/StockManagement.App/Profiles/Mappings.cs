@@ -28,6 +28,7 @@ namespace StockManagement.App.Profiles
                 act => act.MapFrom(src => src.Category.CategoryId));
 
             CreateMap<CountryListVm, CountryListViewModel>();
+            CreateMap<CountryViewModel, CreateCountryCommand>();
 
         }
     }
