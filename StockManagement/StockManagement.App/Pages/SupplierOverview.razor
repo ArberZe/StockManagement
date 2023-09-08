@@ -1,0 +1,35 @@
+﻿@page "/supplieroverview"
+
+<div class="container-fluid d-flex flex-column align-items-center">
+    <h3 class="mt-2">Furnizuesit</h3>
+
+    <br />
+    <MudLink Href="/addsupplier" Underline="Underline.Always" Class="btn">Shto furnizues</MudLink>
+    <br />
+    @if (Suppliers.Count == 0)
+    {
+        <p><em>Loading...</em></p>
+        <MudProgressCircular Color="Color.Success" Indeterminate="true" />
+    }
+    else
+    {
+        <MudSimpleTable Style="overflow-x: auto; width: fit-content;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Emri furnizuesit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var supplier in Suppliers)
+                {
+                    <tr>
+                        <td>@supplier.SupplierId</td>
+                        <td>@supplier.Name </td>
+                    </tr>
+                }
+            </tbody>
+        </MudSimpleTable>
+    }
+</div>
+

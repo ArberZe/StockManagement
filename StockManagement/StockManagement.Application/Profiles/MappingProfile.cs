@@ -9,6 +9,7 @@ using StockManagement.Application.Features.Categories.Queries.GetCategoriesByCre
 using StockManagement.Domain.Entities;
 using StockManagement.Application.Features.Countries.Queries.GetCountryList;
 using StockManagement.Application.Features.Countries.Commands.CreateCountry;
+using StockManagement.Application.Features.Suppliers.Queries.GetSupplierList;
 
 namespace StockManagement.Application.Profiles
 {
@@ -32,6 +33,8 @@ namespace StockManagement.Application.Profiles
             CreateMap<Country, CountryListVm>();
             CreateMap<CreateCountryCommand, Country>();
             CreateMap<Country, CreateCountryDto>();
+
+            CreateMap<Supplier, SupplierListVm>();
 
            
         }

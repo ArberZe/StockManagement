@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <Folder Include="Features\Companies\" />
-    <Folder Include="Features\Suppliers\" />
+    <Folder Include="Features\Suppliers\Commands\CreateSupplier\" />
   </ItemGroup>
 
 </Project>

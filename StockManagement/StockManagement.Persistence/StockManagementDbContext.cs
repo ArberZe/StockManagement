@@ -11,16 +11,17 @@ public class StockManagementDbContext: DbContext
     }
 
     public DbSet<Country> Countries { get; set; } = default!;
+    public DbSet<Supplier> Suppliers { get; set; } = default!;
     public DbSet<Product> Products { get; set; } = default!;
     public DbSet<Category> Categories { get; set; } = default!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(StockManagementDbContext).Assembly);
-        
+
         //seed data added through migrations
-        var foodGuid = Guid.Parse("{B0788D2F-8003-43C1-92A4-EDC76A7C5DDE}");
-        var drinkGuid = Guid.Parse("{6313179F-7837-473A-A4D5-A5571B43E6A6}");
+        //var foodGuid = Guid.Parse("{B0788D2F-8003-43C1-92A4-EDC76A7C5DDE}");
+        //var drinkGuid = Guid.Parse("{6313179F-7837-473A-A4D5-A5571B43E6A6}");
         //var playGuid = Guid.Parse("{BF3F3002-7E53-441E-8B76-F6280BE284AA}");
         //var conferenceGuid = Guid.Parse("{FE98F549-E790-4E9F-AA16-18C2292A2EE9}");
 
@@ -34,6 +35,20 @@ public class StockManagementDbContext: DbContext
         {
             CountryId = 2,
             Name = "Gjermani"
+        });
+
+        modelBuilder.Entity<Supplier>().HasData(new Supplier
+        {
+            SupplierId = 1,
+            Name = "Jaffa",
+            CountryId = 1,
+        });
+
+        modelBuilder.Entity<Supplier>().HasData(new Supplier
+        {
+            SupplierId = 2,
+            Name = "Gllareva",
+            CountryId = 1,
         });
 
         modelBuilder.Entity<Category>().HasData(new Category
