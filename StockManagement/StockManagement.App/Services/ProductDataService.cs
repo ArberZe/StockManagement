@@ -51,7 +51,7 @@ namespace StockManagement.App.Services
             }
         }
 
-        public async Task<ApiResponse<ProductDto>> CreateProduct(ProductListViewModel productViewModel)
+        public async Task<ApiResponse<ProductDto>> CreateProduct(ProductViewModel productViewModel)
         {
             try
             {

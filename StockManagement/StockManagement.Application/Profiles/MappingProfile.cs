@@ -44,6 +44,7 @@ namespace StockManagement.Application.Profiles
             CreateMap<Company, CompanyListVm>();
             CreateMap<CreateCompanyCommand, Company>();
             CreateMap<Company, CreateCompanyDto>();
+            CreateMap<Company, CompanyDto>();
            
         }
     }

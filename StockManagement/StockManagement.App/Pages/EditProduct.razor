@@ -34,6 +34,15 @@
             </InputSelect>
         </div>
         <div class="form-group">
+            <label for="companyid" class="col-sm-6 form-label">Prodhuesi:</label>
+            <InputSelect class="form-control" id="company" @bind-Value="ProductViewModel.CompanyId">
+                @foreach (var company in Companies)
+                {
+                    <option value="@company.CompanyId">@company.Name</option>
+                }
+            </InputSelect>
+        </div>
+        <div class="form-group">
             <label for="sellingprice" class="col-sm-6 form-label">Cmimi shitjes:</label>
             <div class="col-sm-8">
                 <InputNumber id="name" class="form-control" @bind-Value="@ProductViewModel.SellingPrice" placeholder="Cmimi"></InputNumber>
