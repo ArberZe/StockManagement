@@ -74,7 +74,14 @@ public class StockManagementDbContext: DbContext
         modelBuilder.Entity<Company>().HasData(new Company
         {
             CompanyId = 2,
-            Name = "Coca Cola",
+            Name = "The Coca-Cola Company",
+            CountryId = 4,
+        });
+
+        modelBuilder.Entity<Company>().HasData(new Company
+        {
+            CompanyId = 3,
+            Name = "Red Bull GmbH",
             CountryId = 4,
         });
 
@@ -96,7 +103,8 @@ public class StockManagementDbContext: DbContext
             Name = "Red Bull",
             Description = "Pije energjike",
             SellingPrice = 1.50m,
-            CategoryId = 2
+            CategoryId = 2,
+            CompanyId = 3
         });
         
         modelBuilder.Entity<Product>().HasData(new Product()
@@ -105,7 +113,8 @@ public class StockManagementDbContext: DbContext
             Name = "Coca Cola",
             Description = "Pije freskuese",
             SellingPrice = 0.70m,
-            CategoryId = 2
+            CategoryId = 2,
+            CompanyId = 2
         });
     }
     

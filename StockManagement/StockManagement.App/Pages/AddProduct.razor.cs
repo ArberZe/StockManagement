@@ -15,21 +15,26 @@ namespace StockManagement.App.Pages
         public ICategoryDataService CategoryDataService { get; set; }
 
         [Inject]
+        public ICompanyDataService CompanyDataService { get; set; }
+
+        [Inject]
         public NavigationManager NavigationManager { get; set; }
 
-        public ProductListViewModel ProductViewModel { get; set; } 
+        public ProductViewModel ProductViewModel { get; set; } 
         public string Message { get; set; }
         private string MessageClass { get; set; } = String.Empty;
 
         public IEnumerable<CategoryViewModel> Categories { get; set; } = new List<CategoryViewModel>();
+        public IEnumerable<CompanyListViewModel> Companies { get; set; } = new List<CompanyListViewModel>();
 
         protected override void OnInitialized()
         {
-            ProductViewModel = new ProductListViewModel();
+            ProductViewModel = new ProductViewModel();
         }
         protected async override Task OnInitializedAsync()
         {
             Categories = await CategoryDataService.GetAllCategories();
+            Companies = await CompanyDataService.GetAllCompanies();
         }
 
         protected async Task HandleValidSubmit()

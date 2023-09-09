@@ -8,27 +8,32 @@ namespace StockManagement.App.Pages
     public partial class EditProduct
     {
         [Inject]
-        public IProductDataService ProductDataService { get; set; }
+        protected IProductDataService ProductDataService { get; set; }
 
         [Inject]
-        public ICategoryDataService CategoryDataService { get; set; }
+        protected ICategoryDataService CategoryDataService { get; set; }
+
+        [Inject]
+        protected ICompanyDataService CompanyDataService { get; set; }
 
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
-        public ProductViewModel ProductViewModel { get; set; } = new();
-        public IEnumerable<CategoryViewModel> Categories { get; set; } = new List<CategoryViewModel>();
-        public string Message { get; set; }
+        protected ProductViewModel ProductViewModel { get; set; } = new();
+        protected IEnumerable<CategoryViewModel> Categories { get; set; } = new List<CategoryViewModel>();
+        protected IEnumerable<CompanyListViewModel> Companies { get; set; } = new List<CompanyListViewModel>();
+        protected string Message { get; set; } = string.Empty;
         private string MessageClass { get; set; } = String.Empty;
 
         [Parameter]
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
 
         protected async override Task OnInitializedAsync()
         {
             ProductViewModel = await ProductDataService.GetProductById(int.Parse(Id));
             Categories = await CategoryDataService.GetAllCategories();
+            Companies = await CompanyDataService.GetAllCompanies();
         }
 
         protected async Task HandleValidSubmit()

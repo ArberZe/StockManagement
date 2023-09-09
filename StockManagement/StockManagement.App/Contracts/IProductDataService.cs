@@ -10,6 +10,6 @@ namespace StockManagement.App.Contracts
         Task<ProductViewModel> GetProductById(int id);
         Task<ProductDetailsViewModel> GetProductDetailsById(int id);
         Task<ApiResponse<int>> UpdateProduct(ProductViewModel productViewModel);
-        Task<ApiResponse<ProductDto>> CreateProduct(ProductListViewModel productViewModel);
+        Task<ApiResponse<ProductDto>> CreateProduct(ProductViewModel productViewModel);
     }
 }

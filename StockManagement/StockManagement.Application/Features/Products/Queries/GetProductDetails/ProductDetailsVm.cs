@@ -5,7 +5,8 @@
         public int ProductId { get; set; }
         public string Name { get; set; } = String.Empty;
         public string Description { get; set; } = string.Empty;
-        public CategoryDto Category { get; set; } = default!;
         public decimal SellingPrice { get; set; }
+        public CategoryDto Category { get; set; } = default!;
+        public CompanyDto Company { get; set; } = default!;
     }
 }
