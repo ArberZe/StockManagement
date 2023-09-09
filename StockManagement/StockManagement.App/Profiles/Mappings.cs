@@ -31,6 +31,10 @@ namespace StockManagement.App.Profiles
             CreateMap<CountryViewModel, CreateCountryCommand>();
 
             CreateMap<SupplierListVm, SupplierListViewModel>();
+            CreateMap<SupplierViewModel, CreateSupplierCommand>();
+
+            CreateMap<CompanyListVm, CompanyListViewModel>();
+            CreateMap<CompanyViewModel, CreateCompanyCommand>();
         }
     }
 }

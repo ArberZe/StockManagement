@@ -1,0 +1,35 @@
+﻿@page "/companyoverview"
+
+<div class="container-fluid d-flex flex-column align-items-center">
+    <h3 class="mt-2">Firmat Prodhuese</h3>
+
+    <br />
+    <MudLink Href="/addcompany" Underline="Underline.Always" Class="btn">Shto furnizues</MudLink>
+    <br />
+    @if (Companies.Count == 0)
+    {
+        <p><em>Loading...</em></p>
+        <MudProgressCircular Color="Color.Success" Indeterminate="true" />
+    }
+    else
+    {
+        <MudSimpleTable Style="overflow-x: auto; width: fit-content;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Emri firmes</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var company in Companies)
+                {
+                    <tr>
+                        <td>@company.CompanyId</td>
+                        <td>@company.Name </td>
+                    </tr>
+                }
+            </tbody>
+        </MudSimpleTable>
+    }
+</div>
+

@@ -36,6 +36,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ2F0ZWdvcnkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-wwln2qqsav
 
+[F:/Projects/StockManagement/StockManagement/StockManagement.App/Pages/AddCompany.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ29tcGFueS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-92qtsq7hds
+
 [F:/Projects/StockManagement/StockManagement/StockManagement.App/Pages/AddCountry.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ291bnRyeS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-ke9of70kz0
@@ -44,9 +48,17 @@ build_metadata.AdditionalFiles.CssScope = b-ke9of70kz0
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkUHJvZHVjdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-b5ccanr3t1
 
+[F:/Projects/StockManagement/StockManagement/StockManagement.App/Pages/AddSupplier.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkU3VwcGxpZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-kfrmvaktam
+
 [F:/Projects/StockManagement/StockManagement/StockManagement.App/Pages/CategoryOverview.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcnlPdmVydmlldy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-udyrysmc8r
+
+[F:/Projects/StockManagement/StockManagement/StockManagement.App/Pages/CompanyOverview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcGFueU92ZXJ2aWV3LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-xsr2k92kw1
 
 [F:/Projects/StockManagement/StockManagement/StockManagement.App/Pages/CountryOverview.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRyeU92ZXJ2aWV3LnJhem9y

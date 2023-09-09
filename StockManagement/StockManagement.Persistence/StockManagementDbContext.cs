@@ -12,6 +12,7 @@ public class StockManagementDbContext: DbContext
 
     public DbSet<Country> Countries { get; set; } = default!;
     public DbSet<Supplier> Suppliers { get; set; } = default!;
+    public DbSet<Company> Companies { get; set; } = default!;
     public DbSet<Product> Products { get; set; } = default!;
     public DbSet<Category> Categories { get; set; } = default!;
 
@@ -37,6 +38,18 @@ public class StockManagementDbContext: DbContext
             Name = "Gjermani"
         });
 
+        modelBuilder.Entity<Country>().HasData(new Country
+        {
+            CountryId = 3,
+            Name = "Maqedoni e veriut"
+        });
+
+        modelBuilder.Entity<Country>().HasData(new Country
+        {
+            CountryId = 4,
+            Name = "Gjeorgji"
+        });
+
         modelBuilder.Entity<Supplier>().HasData(new Supplier
         {
             SupplierId = 1,
@@ -49,6 +62,20 @@ public class StockManagementDbContext: DbContext
             SupplierId = 2,
             Name = "Gllareva",
             CountryId = 1,
+        });
+
+        modelBuilder.Entity<Company>().HasData(new Company
+        {
+            CompanyId = 1,
+            Name = "Dauti",
+            CountryId = 3,
+        });
+
+        modelBuilder.Entity<Company>().HasData(new Company
+        {
+            CompanyId = 2,
+            Name = "Coca Cola",
+            CountryId = 4,
         });
 
         modelBuilder.Entity<Category>().HasData(new Category

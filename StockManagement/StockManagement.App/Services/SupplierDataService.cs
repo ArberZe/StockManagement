@@ -22,5 +22,33 @@ namespace StockManagement.App.Services
             var mappedSuppliers = _mapper.Map<ICollection<SupplierListViewModel>>(allSuppliers);
             return mappedSuppliers.ToList();
         }
+
+        public async Task<ApiResponse<CreateSupplierDto>> CreateSupplier(SupplierViewModel supplierViewModel)
+        {
+            try
+            {
+                ApiResponse<CreateSupplierDto> apiResponse = new();
+                CreateSupplierCommand createSupplierCommand = _mapper.Map<CreateSupplierCommand>(supplierViewModel);
+                var createProductCommandResponse = await _client.AddSupplierAsync(createSupplierCommand);
+                if (createProductCommandResponse.Success)
+                {
+                    apiResponse.Data = _mapper.Map<CreateSupplierDto>(createProductCommandResponse.Supplier);
+                    apiResponse.Success = true;
+                }
+                else
+                {
+                    apiResponse.Data = null;
+                    foreach (var error in createProductCommandResponse.ValidationErrors)
+                    {
+                        apiResponse.ValidationErrors += error + Environment.NewLine;
+                    }
+                }
+                return apiResponse;
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiExceptions<CreateSupplierDto>(ex);
+            }
+        }
     }
 }

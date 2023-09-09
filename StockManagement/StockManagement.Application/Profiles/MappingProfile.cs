@@ -10,6 +10,9 @@ using StockManagement.Domain.Entities;
 using StockManagement.Application.Features.Countries.Queries.GetCountryList;
 using StockManagement.Application.Features.Countries.Commands.CreateCountry;
 using StockManagement.Application.Features.Suppliers.Queries.GetSupplierList;
+using StockManagement.Application.Features.Suppliers.Commands.CreateSupplier;
+using StockManagement.Application.Features.Companies.Queries.GetCompanyList;
+using StockManagement.Application.Features.Companies.Commands.CreateCompany;
 
 namespace StockManagement.Application.Profiles
 {
@@ -35,7 +38,12 @@ namespace StockManagement.Application.Profiles
             CreateMap<Country, CreateCountryDto>();
 
             CreateMap<Supplier, SupplierListVm>();
+            CreateMap<CreateSupplierCommand, Supplier>();
+            CreateMap<Supplier, CreateSupplierDto>();
 
+            CreateMap<Company, CompanyListVm>();
+            CreateMap<CreateCompanyCommand, Company>();
+            CreateMap<Company, CreateCompanyDto>();
            
         }
     }

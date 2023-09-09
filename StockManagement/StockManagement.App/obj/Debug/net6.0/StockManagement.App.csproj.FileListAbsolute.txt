@@ -71,3 +71,6 @@ F:\Projects\StockManagement\StockManagement\StockManagement.App\obj\Debug\net6.0
 F:\Projects\StockManagement\StockManagement\StockManagement.App\obj\Debug\net6.0\scopedcss\Pages\CountryOverview.razor.rz.scp.css
 F:\Projects\StockManagement\StockManagement\StockManagement.App\obj\Debug\net6.0\scopedcss\Pages\AddCountry.razor.rz.scp.css
 F:\Projects\StockManagement\StockManagement\StockManagement.App\obj\Debug\net6.0\scopedcss\Pages\SupplierOverview.razor.rz.scp.css
+F:\Projects\StockManagement\StockManagement\StockManagement.App\obj\Debug\net6.0\scopedcss\Pages\AddSupplier.razor.rz.scp.css
+F:\Projects\StockManagement\StockManagement\StockManagement.App\obj\Debug\net6.0\scopedcss\Pages\CompanyOverview.razor.rz.scp.css
+F:\Projects\StockManagement\StockManagement\StockManagement.App\obj\Debug\net6.0\scopedcss\Pages\AddCompany.razor.rz.scp.css

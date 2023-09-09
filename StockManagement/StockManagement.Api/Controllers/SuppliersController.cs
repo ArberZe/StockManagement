@@ -1,7 +1,6 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using StockManagement.Application.Features.Countries.Queries.GetCountryList;
+using StockManagement.Application.Features.Suppliers.Commands.CreateSupplier;
 using StockManagement.Application.Features.Suppliers.Queries.GetSupplierList;
 
 namespace StockManagement.Api.Controllers
@@ -22,6 +21,13 @@ namespace StockManagement.Api.Controllers
         {
             var dtos = await _mediator.Send(new GetSupplierListQuery());
             return Ok(dtos);
+        }
+
+        [HttpPost(Name = "AddSupplier")]
+        public async Task<ActionResult<CreateSupplierCommandResponse>> Create([FromBody] CreateSupplierCommand createSupplierCommand)
+        {
+            var response = await _mediator.Send(createSupplierCommand);
+            return Ok(response);
         }
     }
 }
