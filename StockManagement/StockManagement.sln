@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.Api", "Stoc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockManagement.App", "StockManagement.App\StockManagement.App.csproj", "{9E4D0883-82C4-45F7-8DA4-17FB4DC4DD9E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagement.Identity", "StockManagement.Identity\StockManagement.Identity.csproj", "{BB9D97B2-5A6D-4BE8-8FDD-F62485739D28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{9E4D0883-82C4-45F7-8DA4-17FB4DC4DD9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E4D0883-82C4-45F7-8DA4-17FB4DC4DD9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E4D0883-82C4-45F7-8DA4-17FB4DC4DD9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB9D97B2-5A6D-4BE8-8FDD-F62485739D28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB9D97B2-5A6D-4BE8-8FDD-F62485739D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB9D97B2-5A6D-4BE8-8FDD-F62485739D28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB9D97B2-5A6D-4BE8-8FDD-F62485739D28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +78,7 @@ Global
 		{20239CB9-A56E-4B25-BD94-2DFDDB3CBEC2} = {B2DADBD5-534A-4767-A0D5-82AC9F6C9468}
 		{78CB698C-1369-4756-BD40-352FAAB4DF64} = {D2798AD8-1F8F-4F6C-96D1-DA14FD189F5E}
 		{9E4D0883-82C4-45F7-8DA4-17FB4DC4DD9E} = {CDD4C265-082E-442B-9365-BBD7DC2CD7F4}
+		{BB9D97B2-5A6D-4BE8-8FDD-F62485739D28} = {B2DADBD5-534A-4767-A0D5-82AC9F6C9468}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9DD15F18-4ADE-4BE0-A603-76901643779F}

@@ -3,6 +3,7 @@ using StockManagement.Application.Features.Categories.Queries.GetCategoriesList;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using StockManagement.Application.Features.Categories.Queries.GetCategoriesByCreatedDateDescending;
+using Microsoft.AspNetCore.Authorization;
 
 namespace StockManagement.Api.Controllers
 {
@@ -17,6 +18,7 @@ namespace StockManagement.Api.Controllers
             _mediator = mediator;
         }
 
+        [Authorize]
         [HttpGet("all", Name = "GetAllCategories")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<List<CategoryListVm>>> GetAllCategories()
