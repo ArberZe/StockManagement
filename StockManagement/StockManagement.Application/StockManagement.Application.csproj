@@ -20,9 +20,4 @@
     <ProjectReference Include="..\StockManagement.Domain\StockManagement.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Companies\" />
-    <Folder Include="Features\Suppliers\" />
-  </ItemGroup>
-
 </Project>
