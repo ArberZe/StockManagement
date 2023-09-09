@@ -24,6 +24,8 @@ builder.Services.AddSingleton(new HttpClient
 builder.Services.AddHttpClient<IClient, Client>(client => client.BaseAddress = new Uri("https://localhost:7017"));
 
 builder.Services.AddScoped<ICountryDataService, CountryDataService>();
+builder.Services.AddScoped<ICompanyDataService, CompanyDataService>();
+builder.Services.AddScoped<ISupplierDataService, SupplierDataService>();
 builder.Services.AddScoped<ICategoryDataService, CategoryDataService>();
 builder.Services.AddScoped<IProductDataService, ProductDataService>();
 

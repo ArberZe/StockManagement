@@ -1,4 +1,4 @@
-﻿namespace StockManagement.App.Contracts
+﻿namespace StockManagement.App.ViewModels
 {
     public class CountryViewModel
     {
