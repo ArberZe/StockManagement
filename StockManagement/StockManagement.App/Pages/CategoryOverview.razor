@@ -1,7 +1,6 @@
 ﻿@using System.Net.Http.Json
 @page "/categoryoverview"
 
-<AuthorizeView>
 <div class="container-fluid d-flex flex-column align-items-center">
     <h3 class="mt-2">Kategorite</h3>
 
@@ -15,7 +14,6 @@
     }
     else
     {
-        <Authorized>
             <MudSimpleTable Style="overflow-x: auto; width: fit-content;">
                 <thead>
                     <tr>
@@ -33,11 +31,6 @@
                     }
                 </tbody>
             </MudSimpleTable>
-        </Authorized>
     }
-    <NotAuthorized>
-        Nuk jeni te autorizuar
-    </NotAuthorized>
 </div>
-</AuthorizeView>
 

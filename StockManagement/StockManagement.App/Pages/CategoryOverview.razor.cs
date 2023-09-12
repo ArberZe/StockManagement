@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using StockManagement.App.Contracts;
 using StockManagement.App.ViewModels;
 
@@ -18,7 +17,6 @@ namespace StockManagement.App.Pages
 
         protected async override Task OnInitializedAsync()
         {
-            await base.OnInitializedAsync();
             Categories = await CategoryDataService.GetAllCategories();
         }
     }
