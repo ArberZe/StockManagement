@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace StockManagement.Api.Controllers
 {
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class CategoryController : ControllerBase

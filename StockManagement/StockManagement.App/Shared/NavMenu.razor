@@ -1,3 +1,7 @@
 ﻿<MudNavMenu>
-    <MudNavLink Href="/" Match="NavLinkMatch.All">Dashboard</MudNavLink>
+    <AuthorizeView>
+    <Authorized>
+        <MudNavLink Href="/" Match="NavLinkMatch.All">Dashboard</MudNavLink>
+    </Authorized>
+    </AuthorizeView>
 </MudNavMenu>

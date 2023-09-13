@@ -1,0 +1,67 @@
+﻿@page
+@model StockManagement.App.Areas.Identity.Pages.LoginModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+
+<div style="margin-right: auto; margin-left: auto;width: 25%; border-color: rgba(0, 0, 0, 0.5); border-style: solid; border-radius: 2%; align-content: center;">
+
+    <h3 style="margin-left: 23%;">Llogohu</h3>
+    <div class="row" style="margin-left: 20%;">
+        <div class="col-md-9">
+            <section>
+                <form method="post">
+                    <hr />
+                    <div class="form-group">
+                        <label asp-for="Input.Username">Emaili</label>
+                        <input asp-for="Input.Username" class="form-control" />
+                        <span asp-validation-for="Input.Username" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label asp-for="Input.Password">Fjalkalimi</label>
+                        <input asp-for="Input.Password" class="form-control" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="text-danger">
+                        @TempData["ErrorMessage"]
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">OK</button>
+                    </div>
+                    <br />
+                    <br />
+                </form>
+            </section>
+        </div>
+
+        <div class="form-group">
+            <button onclick="window.location.href='/GoogleLogin'">Google OAuth</button>
+        </div>
+    </div>
+</div>
+@*@page
+@model StockManagement.App.Areas.Identity.Pages.Account.LoginModel
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <input asp-for="Input.Email" class="form-control" autocomplete="username" />
+    <label asp-for="Input.Email" class="form-control" autocomplete="username" ></label>
+    <span asp-validation-for="Input.Email" class="text-danger"></span>
+
+    <input asp-for="Input.Password" class="form-control" autocomplete="Password" />
+    <label asp-for="Input.Password" class="form-control" autocomplete="Password"></label>
+    <span asp-validation-for="Input.Password" class="text-danger"></span>
+
+
+    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary" >Login</button>
+</div>
+*@
