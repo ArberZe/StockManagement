@@ -1,14 +1,13 @@
-﻿using AutoMapper;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using StockManagement.App.Contracts;
 using StockManagement.App.Services;
 using StockManagement.App.Services.Base;
 using StockManagement.App.ViewModels;
-using StockManagement.Application.Contracts.Persistence;
-using StockManagement.Domain.Entities;
 
 namespace StockManagement.App.Pages
 {
+    [Authorize]
     public partial class AddSupplier
     {
         [Inject]

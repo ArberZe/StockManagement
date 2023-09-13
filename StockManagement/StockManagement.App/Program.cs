@@ -3,7 +3,9 @@ using StockManagement.App.Contracts;
 using StockManagement.App.Services;
 using StockManagement.App.Services.Base;
 using MudBlazor.Services;
-
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Components.Server;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,8 @@ builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
+//builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
+builder.Services.AddScoped<AuthenticationStateProvider, ServerAuthenticationStateProvider>();
 
 builder.Services.AddSingleton(new HttpClient
 {
@@ -30,7 +34,8 @@ builder.Services.AddScoped<ICategoryDataService, CategoryDataService>();
 builder.Services.AddScoped<IProductDataService, ProductDataService>();
 
 
-builder.Services.AddAuthentication("Cookies").AddCookie(options =>
+builder.Services.AddControllers();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
 {
     options.ExpireTimeSpan = TimeSpan.FromMinutes(120);
     options.SlidingExpiration = true;
@@ -55,7 +60,11 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapBlazorHub();
-app.MapFallbackToPage("/_Host");
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+    endpoints.MapBlazorHub();
+    endpoints.MapFallbackToPage("/_Host");
+});
 
 app.Run();

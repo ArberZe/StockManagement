@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using StockManagement.App.Contracts;
 using StockManagement.App.ViewModels;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace StockManagement.App.Pages
 {
+    [Authorize]
     public partial class SupplierOverview
     {
         [Inject]

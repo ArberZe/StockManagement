@@ -3,9 +3,11 @@ using StockManagement.App.Contracts;
 using StockManagement.App.Services.Base;
 using StockManagement.App.ViewModels;
 using StockManagement.App.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace StockManagement.App.Pages
 {
+    [Authorize]
     public partial class AddCategory
     {
         [Inject]
@@ -25,6 +27,8 @@ namespace StockManagement.App.Pages
 
         protected async Task HandleValidSubmit()
         {
+            await base.OnInitializedAsync();
+            //await base.OnAfterRenderAsync();
             var response = await CategoryDataService.CreateCategory(CategoryViewModel);
             HandleResponse(response);
         }
@@ -35,6 +39,7 @@ namespace StockManagement.App.Pages
             {
                 Message = "Kategoria u shtua!";
                 MessageClass = "alert-success";
+                NavigationManager.NavigateTo("/categoryoverview");
             }
             else
             {

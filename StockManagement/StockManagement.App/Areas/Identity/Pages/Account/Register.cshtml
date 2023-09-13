@@ -1,34 +1,77 @@
 ﻿@page
 @model StockManagement.App.Areas.Identity.Pages.Account.RegisterModel
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Regjistrohu";
 }
 
-<h1>@ViewData["Title"]</h1>
+<div class="container-fluid d-flex flex-column align-items-center w-60">
+    <h3 class="mt-2">@ViewData["Title"]</h3>
+    <form>
 
-<div class="row">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    @*       
+        <div class="text-center mb-3">
+        <p>Sign up with:</p>
+        <button type="button" class="btn btn-link btn-floating mx-1">
+          <i class="fab fa-facebook-f"></i>
+        </button>
 
-    <input asp-for="Input.FirstName" class="form-control" autocomplete="firstname" />
-    <label asp-for="Input.FirstName" class="form-control" autocomplete="firstname"></label>
-    <span asp-validation-for="Input.LastName" class="text-danger"></span>
+        <button type="button" class="btn btn-link btn-floating mx-1">
+          <i class="fab fa-google"></i>
+        </button>
 
-    <input asp-for="Input.LastName" class="form-control" autocomplete="lastname" />
-    <label asp-for="Input.LastName" class="form-control" autocomplete="lastname"></label>
-    <span asp-validation-for="Input.LastName" class="text-danger"></span>
+        <button type="button" class="btn btn-link btn-floating mx-1">
+          <i class="fab fa-twitter"></i>
+        </button>
 
-    <input asp-for="Input.UserName" class="form-control" autocomplete="username" />
-    <label asp-for="Input.UserName" class="form-control" autocomplete="username"></label>
-    <span asp-validation-for="Input.UserName" class="text-danger"></span>
-
-    <input asp-for="Input.Email" class="form-control" autocomplete="email" />
-    <label asp-for="Input.Email" class="form-control" autocomplete="email"></label>
-    <span asp-validation-for="Input.Email" class="text-danger"></span>
-
-    <input asp-for="Input.Password" class="form-control" autocomplete="password" />
-    <label asp-for="Input.Password" class="form-control" autocomplete="password"></label>
-    <span asp-validation-for="Input.Password" class="text-danger"></span>
+        <button type="button" class="btn btn-link btn-floating mx-1">
+          <i class="fab fa-github"></i>
+        </button>
+        </div> 
+      *@
 
 
-    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Login</button>
+      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      <!-- Name input -->
+      <div class="form-outline mb-4">
+
+        <input asp-for="Input.FirstName" class="form-control" autocomplete="firstname" />
+        <label asp-for="Input.FirstName" class="form-control" autocomplete="firstname"></label>
+        <span asp-validation-for="Input.LastName" class="text-danger"></span>
+      </div>
+
+      <!-- Lastname input -->
+      <div class="form-outline mb-4">
+        <input asp-for="Input.LastName" class="form-control" autocomplete="lastname" />
+        <label asp-for="Input.LastName" class="form-control" autocomplete="lastname"></label>
+        <span asp-validation-for="Input.LastName" class="text-danger"></span>
+      </div>
+
+      <!-- Email-username input -->
+      <div class="form-outline mb-4">
+        <input asp-for="Input.UserName" class="form-control" autocomplete="username" />
+        <label asp-for="Input.UserName" class="form-control" autocomplete="username"></label>
+        <span asp-validation-for="Input.UserName" class="text-danger"></span>
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <input asp-for="Input.Email" class="form-control" autocomplete="email" />
+        <label asp-for="Input.Email" class="form-control" autocomplete="email"></label>
+        <span asp-validation-for="Input.Email" class="text-danger"></span>
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <input asp-for="Input.Password" class="form-control" autocomplete="password" />
+        <label asp-for="Input.Password" class="form-control" autocomplete="password"></label>
+        <span asp-validation-for="Input.Password" class="text-danger"></span>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-3">Regjistrohu</button>
+
+        <div class="text-center">
+            <p>Keni llogari? <a href="/identity/account/login">Kyqu</a></p>
+        </div>
+    </form>
 </div>

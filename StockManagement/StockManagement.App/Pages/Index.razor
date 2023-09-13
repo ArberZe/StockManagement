@@ -3,84 +3,103 @@
 <PageTitle>Index</PageTitle>
 
 <div class="container flex-md-shrink-1" style="margin-top:22px;">
-    <MudPaper Class="d-flex flex-row gap-4" Elevation="0">
-        <MudCard Outlined="true" Class="d-flex flex-column  align-center">
-            <MudCardContent>
-                <MudText>Shtetet</MudText>
-                <MudText Typo="Typo.body2">Lista e shteteve</MudText>
-            </MudCardContent>
-            <MudCardActions>
-                <MudButton Variant="Variant.Text" Color="Color.Primary" Class="d-flex align-center">
-                    <MudLink Href="/countryoverview" Underline="Underline.None">Menaxho</MudLink>
-                </MudButton>
-            </MudCardActions>
-        </MudCard>
-        <MudCard Outlined="true" Class="d-flex flex-column  align-center">
-            <MudCardContent>
-                <MudText>Furnitorët</MudText>
-                <MudText Typo="Typo.body2">Lista e furnitorëve</MudText>
-            </MudCardContent>
-            <MudCardActions>
-                <MudButton Variant="Variant.Text" Color="Color.Primary" Class="d-flex align-center">
-                    <MudLink Href="/supplieroverview" Underline="Underline.None">Menaxho</MudLink>
-                </MudButton>
-            </MudCardActions>
-        </MudCard>
-        <MudCard Outlined="true" Class="d-flex flex-column  align-center">
-            <MudCardContent>
-                <MudText>Kategorite</MudText>
-                <MudText Typo="Typo.body2">Lista e kategorive</MudText>
-            </MudCardContent>
-            <MudCardActions>
-                <MudButton Variant="Variant.Text" Color="Color.Primary" Class="d-flex align-center">
-                    <MudLink Href="/categoryoverview" Underline="Underline.None">Menaxho</MudLink>
-                </MudButton>
-            </MudCardActions>
-        </MudCard>
-        <MudCard Outlined="true" Class="d-flex flex-column  align-center">
-            <MudCardContent>
-                <MudText>Produktet</MudText>
-                <MudText Typo="Typo.body2">Lista e produkteve</MudText>
-            </MudCardContent>
-            <MudCardActions>
-                <MudButton Variant="Variant.Text" Color="Color.Primary" Class="d-flex align-center">
-                    <MudLink Href="/productoverview" Underline="Underline.None">Menaxho</MudLink>
-                </MudButton>
-            </MudCardActions>
-        </MudCard>
-        <MudCard Outlined="true" Class="d-flex flex-column  align-center">
-            <MudCardContent>
-                <MudText>Firmat Prodhuese</MudText>
-                <MudText Typo="Typo.body2">Lista e firmave</MudText>
-            </MudCardContent>
-            <MudCardActions>
-                <MudButton Variant="Variant.Text" Color="Color.Primary" Class="d-flex align-center">
-                    <MudLink Href="/companyoverview" Underline="Underline.None">Menaxho</MudLink>
-                </MudButton>
-            </MudCardActions>
-        </MudCard>
-    </MudPaper>
+    <AuthorizeView>
+        <Authorized>
+            <MudPaper Class="d-flex flex-row gap-4" Elevation="0">
+                <MudCard Outlined="true" Class="d-flex flex-column  align-center">
+                    <MudCardContent>
+                        <MudText>Shtetet</MudText>
+                        <MudText Typo="Typo.body2">Lista e shteteve</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Text" Color="Color.Primary" Class="d-flex align-center">
+                            <MudLink Href="/countryoverview" Underline="Underline.None">Menaxho</MudLink>
+                        </MudButton>
+                    </MudCardActions>
+                </MudCard>
+                <MudCard Outlined="true" Class="d-flex flex-column  align-center">
+                    <MudCardContent>
+                        <MudText>Furnitorët</MudText>
+                        <MudText Typo="Typo.body2">Lista e furnitorëve</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Text" Color="Color.Primary" Class="d-flex align-center">
+                            <MudLink Href="/supplieroverview" Underline="Underline.None">Menaxho</MudLink>
+                        </MudButton>
+                    </MudCardActions>
+                </MudCard>
+                <MudCard Outlined="true" Class="d-flex flex-column  align-center">
+                    <MudCardContent>
+                        <MudText>Kategorite</MudText>
+                        <MudText Typo="Typo.body2">Lista e kategorive</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Text" Color="Color.Primary" Class="d-flex align-center">
+                            <MudLink Href="/categoryoverview" Underline="Underline.None">Menaxho</MudLink>
+                        </MudButton>
+                    </MudCardActions>
+                </MudCard>
+                <MudCard Outlined="true" Class="d-flex flex-column  align-center">
+                    <MudCardContent>
+                        <MudText>Produktet</MudText>
+                        <MudText Typo="Typo.body2">Lista e produkteve</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Text" Color="Color.Primary" Class="d-flex align-center">
+                            <MudLink Href="/productoverview" Underline="Underline.None">Menaxho</MudLink>
+                        </MudButton>
+                    </MudCardActions>
+                </MudCard>
+                <MudCard Outlined="true" Class="d-flex flex-column  align-center">
+                    <MudCardContent>
+                        <MudText>Firmat Prodhuese</MudText>
+                        <MudText Typo="Typo.body2">Lista e firmave prodhuese</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Text" Color="Color.Primary" Class="d-flex align-center">
+                            <MudLink Href="/companyoverview" Underline="Underline.None">Menaxho</MudLink>
+                        </MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudPaper>
+        </Authorized>
+        <NotAuthorized>
+            <MudPaper Class="d-flex flex-row gap-4" Elevation="0">
+                <MudCard Outlined="true" Class="d-flex flex-column  align-center">
+                    <MudCardContent>
+                        <MudText>Shtetet</MudText>
+                        <MudText Typo="Typo.body2">Lista e shteteve</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Text" Color="Color.Primary" Class="d-flex align-center">
+                            <MudLink Href="/countryoverview" Underline="Underline.None">Shiko</MudLink>
+                        </MudButton>
+                    </MudCardActions>
+                </MudCard>
+                <MudCard Outlined="true" Class="d-flex flex-column  align-center">
+                    <MudCardContent>
+                        <MudText>Kategorite</MudText>
+                        <MudText Typo="Typo.body2">Lista e kategorive</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Text" Color="Color.Primary" Class="d-flex align-center">
+                            <MudLink Href="/categoryoverview" Underline="Underline.None">Shiko</MudLink>
+                        </MudButton>
+                    </MudCardActions>
+                </MudCard>
+                <MudCard Outlined="true" Class="d-flex flex-column  align-center">
+                    <MudCardContent>
+                        <MudText>Produktet</MudText>
+                        <MudText Typo="Typo.body2">Lista e produkteve</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Variant="Variant.Text" Color="Color.Primary" Class="d-flex align-center">
+                            <MudLink Href="/productoverview" Underline="Underline.None">Shiko</MudLink>
+                        </MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudPaper>
+        </NotAuthorized>
+    </AuthorizeView>
 </div>
 
-@*<div class="container">
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Kategorite</h5>
-                    <p class="card-text">Lista e kategorive</p>
-                    <a href="#" class="btn btn-primary">Menaxho</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Shtetet</h5>
-                    <p class="card-text">Lista e shteteve</p>
-                    <a href="#" class="btn btn-primary">Menaxho</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>*@

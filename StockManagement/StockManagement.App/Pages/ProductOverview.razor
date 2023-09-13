@@ -3,9 +3,11 @@
 
 <div class="container-fluid d-flex flex-column align-items-center">
     <h3 class="mt-2">Produktet</h3>
-
     <br />
-    <MudLink Href="/addproduct" Underline="Underline.Always" Class="btn">Shto Produkt</MudLink>
+    <AuthorizeView>
+        <Authorized>
+            <MudLink Href="/addproduct" Underline="Underline.Always" Class="btn">Shto Produkt</MudLink>
+
     <br />
 
     @if (Products.Count == 0)
@@ -41,5 +43,42 @@
             </tbody>
         </MudSimpleTable>
     }
+        </Authorized>
+
+    <NotAuthorized>
+            @if (Products.Count == 0)
+            {
+                <p><em>Loading...</em></p>
+                <MudProgressCircular Color="Color.Success" Indeterminate="true" />
+            }
+            else
+            {
+                <MudSimpleTable Style="overflow-x: auto; width: fit-content;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Emri Produktit</th>
+                            <th>Cmimi i shitjes</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var product in Products)
+                        {
+                            <tr>
+                                <td>@product.ProductId</td>
+                                <td>@product.Name </td>
+                                <td class="text-end"> @product.SellingPrice</td>
+                                <a href="@($"productdetails/{product.ProductId}")">Detajet</a>
+                                <td>
+                                    <a href="@($"productdetails/{product.ProductId}")">Detajet</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </MudSimpleTable>
+            }
+    </NotAuthorized>
+    </AuthorizeView>
 </div>
 

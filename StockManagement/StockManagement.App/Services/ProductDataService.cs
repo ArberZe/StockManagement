@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Components.Authorization;
 using StockManagement.App.Contracts;
 using StockManagement.App.Services.Base;
 using StockManagement.App.ViewModels;
@@ -11,7 +12,10 @@ namespace StockManagement.App.Services
     public class ProductDataService: BaseDataService, IProductDataService
     {
         private readonly IMapper _mapper;
-        public ProductDataService(IClient client, IMapper mapper, ILocalStorageService localStorage) : base(client, localStorage)
+        public ProductDataService(IClient client, 
+            IMapper mapper, 
+            ILocalStorageService localStorage,
+            AuthenticationStateProvider authenticationStateProvider) : base(client, localStorage, authenticationStateProvider)
         {
             _mapper = mapper;
         }
@@ -39,6 +43,7 @@ namespace StockManagement.App.Services
 
         public async Task<ApiResponse<int>> UpdateProduct(ProductViewModel productViewModel)
         {
+            await AddBearerToken();
             try
             {
                 UpdateProductCommand updateProductCommand = _mapper.Map<UpdateProductCommand>(productViewModel);
@@ -53,6 +58,7 @@ namespace StockManagement.App.Services
 
         public async Task<ApiResponse<ProductDto>> CreateProduct(ProductViewModel productViewModel)
         {
+            await AddBearerToken();
             try
             {
                 ApiResponse<ProductDto> apiResponse = new();

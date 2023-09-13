@@ -4,14 +4,17 @@
 @code{
     protected override async Task OnInitializedAsync()
     {
+        //base.OnInitialized();
+
         var authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         
         if (authenticationState?.User?.Identity?.IsAuthenticated == false)
         {
-            var path = NavigationManager.BaseUri.EndsWith("/") ? $"{NavigationManager.BaseUri}login"
-                                                            : $"{NavigationManager.BaseUri}/login";
+            // var path = NavigationManager.BaseUri.EndsWith("/") ? 
+            // $"{NavigationManager.BaseUri}identity/account/login" : 
+            // $"{NavigationManager.BaseUri}/identity/account/login";
             
-            NavigationManager.NavigateTo(path, true);
+            NavigationManager.NavigateTo("/identity/account/login", true);
         }
     }
 }

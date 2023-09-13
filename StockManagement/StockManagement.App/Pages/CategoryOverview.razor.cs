@@ -6,6 +6,7 @@ using StockManagement.App.ViewModels;
 
 namespace StockManagement.App.Pages
 {
+
     public partial class CategoryOverview
     {
         [Inject]
@@ -19,6 +20,7 @@ namespace StockManagement.App.Pages
         protected async override Task OnInitializedAsync()
         {
             await base.OnInitializedAsync();
+
             Categories = await CategoryDataService.GetAllCategories();
         }
     }
