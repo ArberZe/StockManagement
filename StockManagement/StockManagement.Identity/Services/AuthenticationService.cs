@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using StockManagement.Application.Models.Mail;
 
 namespace StockManagement.Identity.Services
 {
@@ -27,31 +28,31 @@ namespace StockManagement.Identity.Services
 
         public async Task<AuthenticationResponse> AuthenticateAsync(AuthenticationRequest request)
         {
+            AuthenticationResponse authenticationResponse = new();
             var user = await _userManager.FindByEmailAsync(request.Email);
 
             if (user == null)
             {
-                throw new Exception($"Përdoruesi me {request.Email} nuk u gjet.");
+                //throw new Exception($"Përdoruesi me {request.Email} nuk u gjet.");
+                authenticationResponse.ValidationErrors.Add($"Përdoruesi me {request.Email} nuk u gjet.");
             }
 
             var result = await _signInManager.PasswordSignInAsync(user.UserName, request.Password, false, lockoutOnFailure: false);
 
             if (!result.Succeeded)
             {
-                throw new Exception($"Kredencialet per '{request.Email} nuk janë valide'.");
+                authenticationResponse.ValidationErrors.Add($"Kredencialet per '{request.Email} nuk janë valide'.");
+                //throw new Exception($"Kredencialet per '{request.Email} nuk janë valide'.");
             }
 
             JwtSecurityToken jwtSecurityToken = await GenerateToken(user);
 
-            AuthenticationResponse response = new()
-            {
-                Id = user.Id,
-                Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
-                Email = user.Email,
-                UserName = user.UserName
-            };
+            authenticationResponse.Id = user.Id;
+            authenticationResponse.Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+            authenticationResponse.Email = user.Email;
+            authenticationResponse.UserName = user.UserName;
             
-            return response;
+            return authenticationResponse;
         }
 
         public async Task<RegistrationResponse> RegisterAsync(RegistrationRequest request)
@@ -80,6 +81,7 @@ namespace StockManagement.Identity.Services
 
                 if (result.Succeeded)
                 {
+                    //_signInManager.SignInAsync(user, request.Password);
                     return new RegistrationResponse() { UserId = user.Id };
                 }
                 else

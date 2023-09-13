@@ -3,10 +3,18 @@
 @{
     ViewData["Title"] = "Regjistrohu";
 }
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">@TempData["ErrorMessage"]</div>
+
+}@if (TempData["SuccessRegisterMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">@TempData["SuccessRegisterMessage"] Kyqu <a href="/identity/account/login">KETU</a></div>
+}
 
 <div class="container-fluid d-flex flex-column align-items-center w-60">
     <h3 class="mt-2">@ViewData["Title"]</h3>
-    <form>
+    <form method="post">
 
     @*       
         <div class="text-center mb-3">

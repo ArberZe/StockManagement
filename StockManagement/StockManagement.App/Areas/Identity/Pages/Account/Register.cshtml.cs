@@ -26,14 +26,23 @@ namespace StockManagement.App.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync()
         {
-            ReturnUrl = Url.Content("~/");
-            if(ModelState.IsValid)
+            try
             {
-                await _authenticationService.Register(Input.FirstName, Input.LastName, Input.UserName, Input.Email, Input.Password);
-                return LocalRedirect(ReturnUrl);
+                ReturnUrl = Url.Content("~/identity/account/login");
+                if (ModelState.IsValid)
+                {
+                    if (await _authenticationService.Register(Input.FirstName, Input.LastName, Input.UserName, Input.Email, Input.Password))
+                    {
+                        TempData["SuccessRegisterMessage"] = "Jeni regjistruar me sukses";
+                    }
+                }
+                return Page();
+            }
+            catch(Exception ex) {
+                TempData["ErrorMessage"] = $"{ex.Message}";
+                return Page();
             }
 
-            return Page();
         }
 
         public class InputModel

@@ -4,6 +4,13 @@
 
 @{
     ViewData["Title"] = "Kyqu";
+    var Message = TempData["ErrorMessage"];
+    var MessageClass = "";
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">@Message</div>
 }
 
 <div class="container-fluid w-60 d-flex flex-column align-items-center">

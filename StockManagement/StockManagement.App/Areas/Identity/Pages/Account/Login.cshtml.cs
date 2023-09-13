@@ -11,6 +11,8 @@ namespace StockManagement.App.Areas.Identity.Pages
     [AllowAnonymous]
     public class LoginModel : PageModel
     {
+
+
         [BindProperty]
         public InputModel Input { get; set; }
 
@@ -26,11 +28,11 @@ namespace StockManagement.App.Areas.Identity.Pages
         {
             [Required]
             [DataType(DataType.EmailAddress)]
-            public string Username { get; set; }
+            public string Username { get; set; } = string.Empty;
 
             [Required]
             [DataType(DataType.Password)]
-            public string Password { get; set; }
+            public string Password { get; set; } = string.Empty;
         }
 
         public async Task<IActionResult> OnGet()
@@ -46,13 +48,12 @@ namespace StockManagement.App.Areas.Identity.Pages
         {
             try
             {
-                
                 if (ModelState.IsValid)
                 {
                     var response = await _authService.Authenticate(Input.Username, Input.Password);
                     if (response.Token != string.Empty)
                     {
-                        var claimsIdentity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme, "DisplayName", "");
+                        var claimsIdentity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme, ClaimTypes.Name, "");
                         claimsIdentity.AddClaim(new Claim("Token", response.Token));
                         var principal = new ClaimsPrincipal(claimsIdentity);
                         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
@@ -61,14 +62,18 @@ namespace StockManagement.App.Areas.Identity.Pages
                     }
                     else
                     {
-                        TempData["ErrorMessage"] = "Kombinimi i kredencialeve nuk u gjet, Provoni perseri!";
+
+                        TempData["ErrorMessage"] = "";
+                        foreach (var error in response.ValidationErrors)
+                        {
+                            TempData["ErrorMessage"] += $"{error} ";
+                        }
                     }
                 }
                 return Page();
-            }
-            catch (Exception ex)
+            }catch(Exception)
             {
-                TempData["ErrorMessage"] = "Autentikimi me server deshtoi, ju lutem kontaktoni ekipin zhvillues!";
+                TempData["ErrorMessage"] = "Kombinimi i kredencialeve nuk u gjet, Provoni perseri!";
                 return Page();
             }
         }
