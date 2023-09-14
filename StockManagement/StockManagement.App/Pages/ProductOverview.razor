@@ -6,8 +6,12 @@
     <br />
     <AuthorizeView>
         <Authorized>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="ExportProducts">
+                <MudIcon Icon="@Icons.Material.Filled.ImportExport" Color="Color.Default" Title="Export" />
+                Eksporto produktet
+            </MudButton>
+            <br />
             <MudLink Href="/addproduct" Underline="Underline.Always" Class="btn">Shto Produkt</MudLink>
-
     <br />
 
     @if (Products.Count == 0)
