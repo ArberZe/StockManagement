@@ -12,6 +12,6 @@ public class CreateProductCommand: IRequest<CreateProductCommandResponse>
     
     public override string ToString()
     {
-        return $"Event name: {Name}; Price: {SellingPrice}; CategoryId: {CategoryId}";
+        return $"Emri produktit: {Name}; Cmimi: {SellingPrice}; Kategori Id: {CategoryId}";
     }
 }

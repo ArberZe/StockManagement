@@ -1,26 +1,33 @@
 using StockManagement.Api;
 using Serilog;
 
-
-Log.Logger = new LoggerConfiguration()
+public partial class Program {
+    private static async Task Main(string[] args)
+    {
+        Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .CreateBootstrapLogger();
 
-Log.Information("stockmanagement API starting");
+        Log.Information("stockmanagement API starting");
 
-var builder = WebApplication.CreateBuilder(args);
+        var builder = WebApplication.CreateBuilder(args);
 
-builder.Host.UseSerilog((context, loggerConfiguration) => loggerConfiguration
-     .WriteTo.Console()
-     .ReadFrom.Configuration(context.Configuration));
+        builder.Host.UseSerilog((context, loggerConfiguration) => loggerConfiguration
+             .WriteTo.Console()
+             .ReadFrom.Configuration(context.Configuration));
 
-var app = builder
-       .ConfigureServices()
-       .ConfigurePipeline();
+        builder.Configuration.AddUserSecrets<Program>();
 
 
-await app.ResetDatabaseAsync();
+        var app = builder
+               .ConfigureServices()
+               .ConfigurePipeline();
 
-app.Run();
+
+        await app.ResetDatabaseAsync();
+
+        app.Run();
+    }
+}
 
 public partial class Program { }
