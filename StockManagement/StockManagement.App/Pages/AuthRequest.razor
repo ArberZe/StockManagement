@@ -1,0 +1,61 @@
+﻿@inject IJSRuntime JSRuntime
+@using System.Net.Http
+@using Microsoft.AspNetCore.Components.Authorization
+@using System.Net.Http.Headers;
+
+@page "/secure-page"
+
+@inject IHttpClientFactory HttpClientFactory
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<h3>Secure Page</h3>
+
+<button @onclick="MakeAuthenticatedRequest">Make Authenticated Request</button>
+
+<p>Content REsult: @responseContent</p>
+
+@code {
+    private string jwtToken;
+
+    protected string responseContent { get; set; } = string.Empty;
+
+    private async Task MakeAuthenticatedRequest()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity.IsAuthenticated)
+        {
+            jwtToken = user.FindFirst("Token")?.Value;
+
+            if (!string.IsNullOrEmpty(jwtToken))
+            {
+                var httpClient = HttpClientFactory.CreateClient();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
+
+                // Make your authenticated API request using httpClient
+                var apiResponse = await httpClient.GetAsync("https://localhost:7017/api/category/all");
+
+                if (apiResponse.IsSuccessStatusCode)
+                {
+                    // Process the successful response
+                    var content = await apiResponse.Content.ReadAsStringAsync();
+                    responseContent = await apiResponse.Content.ReadAsStringAsync();
+                    // Handle the API response content
+                }
+                else
+                {
+                    // Handle the API request failure
+                }
+            }
+            else
+            {
+                // Handle the missing token
+            }
+        }
+        else
+        {
+            // Handle the unauthenticated user
+        }
+    }
+}

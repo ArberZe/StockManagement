@@ -1,0 +1,72 @@
+﻿@page
+@model StockManagement.App.Areas.Identity.Pages.LoginModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Kyqu";
+    var Message = TempData["ErrorMessage"];
+    var MessageClass = "";
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">@Message</div>
+}
+
+<div class="container-fluid w-60 d-flex flex-column align-items-center">
+    <h3 class="mt-2">@ViewData["Title"]</h3>
+<form method="post">
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+        <label asp-for="Input.Username" class="form-label" >Email</label>
+        <input asp-for="Input.Username" class="form-control" />
+        <span asp-validation-for="Input.Username" class="text-danger"></span>
+
+    </div>
+
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+        <label asp-for="Input.Password" class="form-label">Fjalkalimi</label>
+        <input asp-for="Input.Password" class="form-control" />
+        <span asp-validation-for="Input.Password" class="text-danger"></span>
+    </div>
+
+    <!-- 2 column grid layout for inline styling -->
+    <div class="row mb-4">
+        @* 
+        <div class="col">
+            <!-- Simple link -->
+            <a href="#!">Keni harruar fjalekalimin?</a>
+        </div> 
+        *@
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4">Kyqu</button>
+
+    <!-- Register buttons -->
+    <div class="text-center">
+        <p>Nuk keni llogari? <a href="/identity/account/register">Regjistrohu</a></p>
+
+        @*         
+        <p>ose regjistrohu me:</p>
+        <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="fab fa-facebook-f"></i>
+        </button>
+
+        <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="fab fa-google"></i>
+        </button>
+
+        <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="fab fa-twitter"></i>
+        </button>
+
+        <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="fab fa-github"></i>
+        </button> 
+        *@
+    </div>
+</form>
+
+</div>

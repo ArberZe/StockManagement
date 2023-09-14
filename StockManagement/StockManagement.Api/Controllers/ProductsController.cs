@@ -6,9 +6,11 @@ using StockManagement.Application.Features.Products.Queries.GetProductDetails;
 using StockManagement.Application.Features.Products.Queries.GetProductsExport;
 using StockManagement.Application.Features.Products.Queries.GetProductsList;
 using StockManagement.Application.Features.Products.Commands.UpdateProduct;
+using Microsoft.AspNetCore.Authorization;
 
 namespace StockManagement.Api.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
@@ -20,6 +22,7 @@ namespace StockManagement.Api.Controllers
             _mediator = mediator;
         }
 
+        [AllowAnonymous]
         [HttpGet("all", Name = "GetAllProducts")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<List<ProductListVm>>> GetAllProducts()
@@ -28,6 +31,7 @@ namespace StockManagement.Api.Controllers
             return Ok(dtos);
         }
 
+        [AllowAnonymous]
         [HttpGet("{id}", Name = "GetProductById")]
         public async Task<ActionResult<ProductDetailsVm>> GetProductById(int id)
         {

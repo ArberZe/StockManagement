@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using StockManagement.Application.Features.Categories.Queries.GetCategoriesList;
@@ -8,6 +9,7 @@ using StockManagement.Application.Features.Countries.Queries.GetCountryList;
 
 namespace StockManagement.Api.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CountriesController : ControllerBase
@@ -18,6 +20,7 @@ namespace StockManagement.Api.Controllers
             _mediator = mediator;
         }
 
+        [AllowAnonymous]
         [HttpGet("all", Name = "GetAllCountries")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<List<CountryListVm>>> GetAllCountries()

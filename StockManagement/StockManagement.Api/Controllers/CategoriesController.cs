@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace StockManagement.Api.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CategoryController : ControllerBase
@@ -18,9 +19,9 @@ namespace StockManagement.Api.Controllers
             _mediator = mediator;
         }
 
-        [Authorize]
         [HttpGet("all", Name = "GetAllCategories")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [AllowAnonymous]
         public async Task<ActionResult<List<CategoryListVm>>> GetAllCategories()
         {
             var dtos = await _mediator.Send(new GetCategoriesListQuery());

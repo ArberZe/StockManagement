@@ -1,10 +1,12 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using StockManagement.Application.Features.Companies.Commands.CreateCompany;
 using StockManagement.Application.Features.Companies.Queries.GetCompanyList;
 
 namespace StockManagement.Api.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CompaniesController : ControllerBase
@@ -17,7 +19,7 @@ namespace StockManagement.Api.Controllers
 
         [HttpGet("all", Name = "GetAllCompanies")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<List<CompanyListVm>>> GetAllCountries()
+        public async Task<ActionResult<List<CompanyListVm>>> GetAllCompanies()
         {
             var dtos = await _mediator.Send(new GetCompanyListQuery());
             return Ok(dtos);

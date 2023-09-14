@@ -1,5 +1,8 @@
-﻿
-using Blazored.LocalStorage;
+﻿using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Components.Authorization;
+using System.Net;
+using System.Net.Http.Headers;
+using System.Security.Claims;
 
 namespace StockManagement.App.Services.Base
 {
@@ -9,11 +12,20 @@ namespace StockManagement.App.Services.Base
 
         protected IClient _client;
 
+        protected readonly AuthenticationStateProvider _authenticationStateProvider;
+
+
         public BaseDataService(IClient client, ILocalStorageService localStorage)
         {
             _client = client;
             _localStorage = localStorage;
+        }
 
+        public BaseDataService(IClient client, ILocalStorageService localStorage, AuthenticationStateProvider authenticationStateProvider)
+        {
+            _client = client;
+            _localStorage = localStorage;
+            _authenticationStateProvider = authenticationStateProvider;
         }
 
         protected ApiResponse<Guid> ConvertApiExceptions<Guid>(ApiException ex)
@@ -32,12 +44,21 @@ namespace StockManagement.App.Services.Base
             }
         }
 
-        /*
         protected async Task AddBearerToken()
         {
-            if (await _localStorage.ContainKeyAsync("token"))
-                _client.HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await _localStorage.GetItemAsync<string>("token"));
+            var authState = await _authenticationStateProvider.GetAuthenticationStateAsync();
+            var user = authState.User;
+
+            if (user.Identity.IsAuthenticated)
+            {
+                var jwtToken = user.FindFirst("Token")?.Value;
+
+                if (!string.IsNullOrEmpty(jwtToken))
+                {
+                    //var httpClient = HttpClientFactory.CreateClient();
+                    _client.HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
+                }
+            }
         }
-        */
     }
 }

@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Components;
 using StockManagement.App.Contracts;
 using StockManagement.App.Services.Base;
-using StockManagement.App.Services;
 using StockManagement.App.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace StockManagement.App.Pages
 {
+    [Authorize]
     public partial class AddProduct
     {
         [Inject]

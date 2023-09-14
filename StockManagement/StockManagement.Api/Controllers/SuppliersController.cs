@@ -1,10 +1,12 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using StockManagement.Application.Features.Suppliers.Commands.CreateSupplier;
 using StockManagement.Application.Features.Suppliers.Queries.GetSupplierList;
 
 namespace StockManagement.Api.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class SuppliersController : ControllerBase

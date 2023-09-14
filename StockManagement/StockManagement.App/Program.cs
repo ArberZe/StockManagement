@@ -3,18 +3,22 @@ using StockManagement.App.Contracts;
 using StockManagement.App.Services;
 using StockManagement.App.Services.Base;
 using MudBlazor.Services;
-
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Components.Server;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMudServices();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddBlazoredLocalStorage();
-
+builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
+//builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
+builder.Services.AddScoped<AuthenticationStateProvider, ServerAuthenticationStateProvider>();
 
 builder.Services.AddSingleton(new HttpClient
 {
@@ -28,6 +32,15 @@ builder.Services.AddScoped<ICompanyDataService, CompanyDataService>();
 builder.Services.AddScoped<ISupplierDataService, SupplierDataService>();
 builder.Services.AddScoped<ICategoryDataService, CategoryDataService>();
 builder.Services.AddScoped<IProductDataService, ProductDataService>();
+
+
+builder.Services.AddControllers();
+builder.Services.AddAuthentication("Cookies").AddCookie(options =>
+{
+    //options.Cookie.Name = "Cookies";
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(120);
+    options.SlidingExpiration = true;
+});
 
 var app = builder.Build();
 
@@ -45,7 +58,14 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.MapBlazorHub();
-app.MapFallbackToPage("/_Host");
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+    endpoints.MapBlazorHub();
+    endpoints.MapFallbackToPage("/_Host");
+});
 
 app.Run();

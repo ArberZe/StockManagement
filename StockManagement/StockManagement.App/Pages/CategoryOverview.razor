@@ -2,11 +2,43 @@
 @page "/categoryoverview"
 
 <div class="container-fluid d-flex flex-column align-items-center">
-    <h3 class="mt-2">Kategorite</h3>
-
+    <h3 class="mt-2">Kategoritë</h3>
+<AuthorizeView>
+    <Authorized>
     <br />
     <MudLink Href="/addcategory" Underline="Underline.Always" Class="btn" >Shto Kategori</MudLink>
-    <br />
+
+            <br />
+            @if (Categories.Count == 0)
+            {
+                <p><em>Loading...</em></p>
+                <MudProgressCircular Color="Color.Success" Indeterminate="true" />
+            }
+            else
+            {
+
+                <MudSimpleTable Style="overflow-x: auto; width: fit-content;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Emri kategorise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var category in Categories)
+                        {
+                            <tr>
+                                <td>@category.CategoryId</td>
+                                <td>@category.Name </td>
+                            </tr>
+                        }
+                    </tbody>
+                </MudSimpleTable>
+
+            }
+    </Authorized>
+    <NotAuthorized>
+
     @if (Categories.Count == 0)
     {
         <p><em>Loading...</em></p>
@@ -14,6 +46,7 @@
     }
     else
     {
+
             <MudSimpleTable Style="overflow-x: auto; width: fit-content;">
                 <thead>
                     <tr>
@@ -31,6 +64,9 @@
                     }
                 </tbody>
             </MudSimpleTable>
+
     }
+    </NotAuthorized>
+</AuthorizeView>
 </div>
 

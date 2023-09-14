@@ -3,14 +3,25 @@ using Blazored.LocalStorage;
 using StockManagement.App.Contracts;
 using StockManagement.App.Services.Base;
 using StockManagement.App.ViewModels;
+using System.Net.Http;
+using System.Net;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Components.Authorization;
+using Newtonsoft.Json.Linq;
+using System.Net.Http.Headers;
 
 namespace StockManagement.App.Services
 {
     public class CategoryDataService: BaseDataService, ICategoryDataService
     {
         private readonly IMapper _mapper;
-        public CategoryDataService(IClient client, IMapper mapper, ILocalStorageService localStorage) : base(client, localStorage)
+        //private readonly AuthenticationStateProvider _authenticationStateProvider;
+        public CategoryDataService(IClient client, 
+            IMapper mapper, 
+            ILocalStorageService localStorage,
+            AuthenticationStateProvider authenticationStateProvider) : base(client, localStorage, authenticationStateProvider)
         {
+            //_authenticationStateProvider = authenticationStateProvider;
             _mapper = mapper;
         }
 
@@ -36,6 +47,8 @@ namespace StockManagement.App.Services
 
         public async Task<ApiResponse<CategoryDto>> CreateCategory(CategoryViewModel categoryViewModel)
         {
+            await AddBearerToken();
+
             try
             {
                 ApiResponse<CategoryDto> apiResponse = new();
