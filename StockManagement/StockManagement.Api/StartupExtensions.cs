@@ -7,6 +7,7 @@ using StockManagement.Api.Utility;
 //using Serilog;
 using StockManagement.Identity;
 using StockManagement.Api.Middleware;
+using Microsoft.AspNetCore.Hosting;
 
 namespace StockManagement.Api
 {

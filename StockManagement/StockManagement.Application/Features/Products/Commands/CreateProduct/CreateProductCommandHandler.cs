@@ -51,7 +51,7 @@ public class CreateProductCommandHandler: IRequestHandler<CreateProductCommand, 
         createProductCommandResponse.Product = _mapper.Map<CreateProductDto>(product);
 
         //Sending email notification to admin address
-        var email = new Email() { To = "arberzeka01@gmail.com", Body = $"A new product was created: {request}", Subject = "A new product was created" };
+        var email = new Email() { To = "arberzeka01@gmail.com", Body = $"Nje produkt i ri u shtua ne databaze, shiko detajet më poshtë: {request}", Subject = "Nje produkt i ri u shtua!!" };
 
         try
         {
@@ -59,7 +59,7 @@ public class CreateProductCommandHandler: IRequestHandler<CreateProductCommand, 
         }
         catch (Exception ex)
         {
-            _logger.LogError($"Mailing about event {product.ProductId} failed due to an error with the mail service: {ex.Message}");
+            _logger.LogError($"Mailing about product{product.ProductId} failed due to an error with the mail service: {ex.Message}");
 
         }
 
