@@ -1,11 +1,3 @@
 ﻿@page
 
-@inject StockManagement.App.Contracts.IAuthenticationService _authenticationService
-
-@functions{
-    public async Task<IActionResult> OnGet()
-    {
-        await _authenticationService.Logout();
-        return Redirect("~/");
-    }
-}
+@model StockManagement.App.Areas.Identity.Pages.Account.Logout

@@ -35,8 +35,9 @@ builder.Services.AddScoped<IProductDataService, ProductDataService>();
 
 
 builder.Services.AddControllers();
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+builder.Services.AddAuthentication("Cookies").AddCookie(options =>
 {
+    //options.Cookie.Name = "Cookies";
     options.ExpireTimeSpan = TimeSpan.FromMinutes(120);
     options.SlidingExpiration = true;
 });

@@ -38,7 +38,6 @@ namespace StockManagement.App.Services
         public async Task Logout()
         {
             //await _localStorage.RemoveItemAsync("token");
-            //_authenticationStateProvider.SetUserLoggedOut();
             _client.HttpClient.DefaultRequestHeaders.Authorization = null;
         }
     }

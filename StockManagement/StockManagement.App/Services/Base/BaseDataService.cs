@@ -59,30 +59,6 @@ namespace StockManagement.App.Services.Base
                     _client.HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
                 }
             }
-            /*            var authState = await _authenticationStateProvider.GetAuthenticationStateAsync();
-                        var user = authState.User;
-
-                        if (user.Identity.IsAuthenticated)
-                        {
-                            var jwtToken = user.FindFirst("Token")?.Value;
-
-                            if (!string.IsNullOrEmpty(jwtToken))
-                            {
-                                //var httpClient = HttpClientFactory.CreateClient();
-                                _client.HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
-                            }
-                        }*/
-            /*            var token = ClaimsPrincipal.Current?.Claims.FirstOrDefault(f => f.Type == "Token");
-                        if (token != null)
-                        {
-                            _client.HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", $"Bearer {token.Value}");
-
-                                *//*.Add(HttpRequestHeader.Authorization.ToString(),
-                                $"Bearer {token.Value}");
-                        *//*}*/
-            /*            if (await _localStorage.ContainKeyAsync("token"))
-                            _client.HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await _localStorage.GetItemAsync<string>("token"));
-            */
         }
     }
 }
