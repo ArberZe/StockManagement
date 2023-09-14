@@ -13,6 +13,7 @@ using StockManagement.Application.Features.Suppliers.Queries.GetSupplierList;
 using StockManagement.Application.Features.Suppliers.Commands.CreateSupplier;
 using StockManagement.Application.Features.Companies.Queries.GetCompanyList;
 using StockManagement.Application.Features.Companies.Commands.CreateCompany;
+using StockManagement.Application.Features.Products.Queries.GetProductsExport;
 
 namespace StockManagement.Application.Profiles
 {
@@ -25,6 +26,7 @@ namespace StockManagement.Application.Profiles
             CreateMap<Product, CreateProductCommand>().ReverseMap();
             CreateMap<Product, UpdateProductCommand>().ReverseMap();
             CreateMap<Product, CreateProductDto>();
+            CreateMap<Product, ProductExportDto>();
 
             CreateMap<Category, CategoryListVm>().ReverseMap();
             CreateMap<Category, CategoryDto>();
