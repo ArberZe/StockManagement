@@ -64,8 +64,8 @@ public class EmailService: IEmailService
         {
             var credential = new NetworkCredential
             {
-                UserName = "arberzeka01@gmail.com",  // replace with valid value
-                Password = _emailSettings.ApiKey  // replace with valid value
+                UserName = "arberzeka01@gmail.com", 
+                Password = _emailSettings.ApiKey  
             };
             smtp.UseDefaultCredentials = false;
             smtp.Credentials = credential;
