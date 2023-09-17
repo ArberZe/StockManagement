@@ -47,16 +47,21 @@ namespace StockManagement.App.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "Shkruani Email-in")]
             [EmailAddress]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage ="Shkruani password-in")]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
+            [Required(ErrorMessage = "Shkruani emrin")]
             public string FirstName { get; set; } = string.Empty;
+            
+            [Required(ErrorMessage = "Shkruani mbiemrin")]
             public string LastName { get; set; } = string.Empty;
+            
+            [Required(ErrorMessage = "Shkruani username-in")] 
             public string UserName { get; set; } = string.Empty;
 
         }

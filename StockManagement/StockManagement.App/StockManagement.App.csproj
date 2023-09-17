@@ -8,9 +8,13 @@
 
 	<ItemGroup>
 	  <Compile Remove="Data\**" />
+	  <Compile Remove="wwwroot\NewFolder\**" />
 	  <Content Remove="Data\**" />
+	  <Content Remove="wwwroot\NewFolder\**" />
 	  <EmbeddedResource Remove="Data\**" />
+	  <EmbeddedResource Remove="wwwroot\NewFolder\**" />
 	  <None Remove="Data\**" />
+	  <None Remove="wwwroot\NewFolder\**" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -26,10 +30,6 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\StockManagement.Application\StockManagement.Application.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="wwwroot\NewFolder\" />
 	</ItemGroup>
 
 </Project>

@@ -27,6 +27,7 @@ namespace StockManagement.App.Pages
 
         protected string Message { get; set; }
         protected string MessageClass { get; set; }
+        protected bool isLoading { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -35,6 +36,7 @@ namespace StockManagement.App.Pages
 
         protected async Task HandleValidSubmit()
         {
+            isLoading = true;
             var response = await CompanyDataService.CreateCompany(CompanyViewModel);
             HandleResponse(response);
         }
@@ -43,12 +45,14 @@ namespace StockManagement.App.Pages
         {
             if(response.Success)
             {
+                isLoading = false;
                 Message = "Firma u shtua";
                 MessageClass = "alert-success";
                 NavigationManager.NavigateTo("/companyoverview");
             }
             else
             {
+                isLoading = false;
                 Message = response.Message;
                 if (!string.IsNullOrEmpty(response.ValidationErrors))
                     Message += response.ValidationErrors;

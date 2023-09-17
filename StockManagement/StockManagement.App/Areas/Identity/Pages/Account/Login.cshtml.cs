@@ -26,11 +26,11 @@ namespace StockManagement.App.Areas.Identity.Pages
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "Shkruani username")]
             [DataType(DataType.EmailAddress)]
             public string Username { get; set; } = string.Empty;
 
-            [Required]
+            [Required(ErrorMessage = "Shkruani password-in")]
             [DataType(DataType.Password)]
             public string Password { get; set; } = string.Empty;
         }

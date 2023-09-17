@@ -25,8 +25,10 @@ namespace StockManagement.App.Pages
         public string Message { get; set; } = string.Empty;
         private string MessageClass { get; set; } = String.Empty;
 
+        protected bool isLoading { get; set; }
         protected async Task HandleValidSubmit()
         {
+            isLoading = true;
             var response = await CountryDataService.CreateCountry(CountryViewModel);
             HandleResponse(response);
         }
@@ -35,12 +37,14 @@ namespace StockManagement.App.Pages
         {
             if (response.Success)
             {
+                isLoading = false;
                 Message = "Shteti u shtua!";
                 MessageClass = "alert-success";
                 NavigationManager.NavigateTo("countryoverview");
             }
             else
             {
+                isLoading = false;
                 Message = response.Message;
                 if (!string.IsNullOrEmpty(response.ValidationErrors))
                     Message += response.ValidationErrors;

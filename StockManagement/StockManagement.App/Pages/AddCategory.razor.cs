@@ -19,6 +19,7 @@ namespace StockManagement.App.Pages
         public CategoryViewModel CategoryViewModel { get; set; }
         public string Message { get; set; }
         private string MessageClass { get; set; } = String.Empty;
+        protected bool isLoading { get; set; }
 
         protected override void OnInitialized()
         {
@@ -27,8 +28,7 @@ namespace StockManagement.App.Pages
 
         protected async Task HandleValidSubmit()
         {
-            await base.OnInitializedAsync();
-            //await base.OnAfterRenderAsync();
+            isLoading = true;
             var response = await CategoryDataService.CreateCategory(CategoryViewModel);
             HandleResponse(response);
         }
@@ -37,12 +37,14 @@ namespace StockManagement.App.Pages
         {
             if (response.Success)
             {
+                isLoading = false;
                 Message = "Kategoria u shtua!";
                 MessageClass = "alert-success";
                 NavigationManager.NavigateTo("/categoryoverview");
             }
             else
             {
+                isLoading = false;
                 Message = response.Message;
                 if (!string.IsNullOrEmpty(response.ValidationErrors))
                     Message += response.ValidationErrors;

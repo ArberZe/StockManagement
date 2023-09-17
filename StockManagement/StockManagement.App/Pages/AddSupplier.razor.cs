@@ -23,13 +23,14 @@ namespace StockManagement.App.Pages
         protected ICollection<CountryListViewModel> Countries { get; set; } = new List<CountryListViewModel>();
         protected string Message { get; set; } = string.Empty;
         protected string MessageClass { get; set; } = string.Empty;
-
+        private bool isLoading { get; set; }
         protected async override Task OnInitializedAsync()
         {
             Countries = await CountryDataService.GetAllCountries();
         }
         protected async Task HandleValidSubmit()
         {
+            isLoading = true;
             var response = await SupplierDataService.CreateSupplier(SupplierViewModel);
             HandleResponse(response);
         }
@@ -37,13 +38,15 @@ namespace StockManagement.App.Pages
         private void HandleResponse(ApiResponse<CreateSupplierDto> response)
         {
             if (response.Success)
-            {
+            {   
+                isLoading = false;
                 Message = "Furnitori u shtua!";
                 MessageClass = "alert-success";
                 NavigationManager.NavigateTo("supplieroverview");
             }
             else
             {
+                isLoading = false;
                 Message = response.Message;
                 if (!string.IsNullOrEmpty(response.ValidationErrors))
                     Message += response.ValidationErrors;

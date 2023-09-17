@@ -3,53 +3,61 @@
 <div class="container-fluid d-flex flex-column align-items-center">
     <h3 class="mt-2">Produkt i ri</h3>
 
-    <div class="alert @MessageClass" role="alert">@Message</div>
+    @if (isLoading)
+    {
+        <p><em>Duke shtuar produktin...</em></p>
+        <MudProgressCircular Color="Color.Success" Indeterminate="true" />
+    }
+    else
+    {
+        <div class="alert @MessageClass" role="alert">@Message</div>
 
-    <EditForm Model="@ProductViewModel" OnValidSubmit="@HandleValidSubmit">
+        <EditForm Model="@ProductViewModel" OnValidSubmit="@HandleValidSubmit">
 
-        <DataAnnotationsValidator />
-        <ValidationSummary></ValidationSummary>
+            <DataAnnotationsValidator />
+            <ValidationSummary></ValidationSummary>
 
-        <div class="form-group">
-            <label for="name" class="col-sm-6 form-label">Emri produktit:</label>
-            <div class="col-sm-8">
-                <InputText id="name" class="form-control" @bind-Value="@ProductViewModel.Name" placeholder="Emri produktit"></InputText>
-                <ValidationMessage For="@(() => ProductViewModel.Name)" />
+            <div class="form-group">
+                <label for="name" class="col-sm-6 form-label">Emri produktit:</label>
+                <div class="col-sm-8">
+                    <InputText id="name" class="form-control" @bind-Value="@ProductViewModel.Name" placeholder="Emri produktit"></InputText>
+                    <ValidationMessage For="@(() => ProductViewModel.Name)" />
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="name" class="col-sm-6 form-label">Pershkrimi:</label>
-            <div class="col-sm-8">
-                <InputText id="description" class="form-control" @bind-Value="@ProductViewModel.Description" placeholder="Pershkrimi"></InputText>
-                <ValidationMessage For="@(() => ProductViewModel.Description)" />
+            <div class="form-group">
+                <label for="name" class="col-sm-6 form-label">Pershkrimi:</label>
+                <div class="col-sm-8">
+                    <InputText id="description" class="form-control" @bind-Value="@ProductViewModel.Description" placeholder="Pershkrimi"></InputText>
+                    <ValidationMessage For="@(() => ProductViewModel.Description)" />
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="categoryid" class="col-sm-6 form-label">Kategoria:</label>
-            <InputSelect class="form-control" id="category" @bind-Value="ProductViewModel.CategoryId">
-                @foreach (var category in Categories)
-                {
-                    <option value="@category.CategoryId">@category.Name</option>
-                }
-            </InputSelect>
-        </div>
-        <div class="form-group">
-            <label for="companyid" class="col-sm-6 form-label">Firma prodhuese:</label>
-            <InputSelect class="form-control" id="company" @bind-Value="ProductViewModel.CompanyId">
-                @foreach (var company in Companies)
-                {
-                    <option value="@company.CompanyId">@company.Name</option>
-                }
-            </InputSelect>
-        </div>
-        <div class="form-group">
-            <label for="sellingprice" class="col-sm-6 form-label">Cmimi shitjes:</label>
-            <div class="col-sm-8">
-                <InputNumber id="name" class="form-control" @bind-Value="@ProductViewModel.SellingPrice" placeholder="Cmimi"></InputNumber>
-                <ValidationMessage For="@(() => ProductViewModel.SellingPrice)" />
+            <div class="form-group">
+                <label for="categoryid" class="col-sm-6 form-label">Kategoria:</label>
+                <InputSelect class="form-control" id="category" @bind-Value="ProductViewModel.CategoryId">
+                    @foreach (var category in Categories)
+                    {
+                        <option value="@category.CategoryId">@category.Name</option>
+                    }
+                </InputSelect>
             </div>
-        </div>
+            <div class="form-group">
+                <label for="companyid" class="col-sm-6 form-label">Firma prodhuese:</label>
+                <InputSelect class="form-control" id="company" @bind-Value="ProductViewModel.CompanyId">
+                    @foreach (var company in Companies)
+                    {
+                        <option value="@company.CompanyId">@company.Name</option>
+                    }
+                </InputSelect>
+            </div>
+            <div class="form-group">
+                <label for="sellingprice" class="col-sm-6 form-label">Cmimi shitjes:</label>
+                <div class="col-sm-8">
+                    <InputNumber id="name" class="form-control" @bind-Value="@ProductViewModel.SellingPrice" placeholder="Cmimi"></InputNumber>
+                    <ValidationMessage For="@(() => ProductViewModel.SellingPrice)" />
+                </div>
+            </div>
 
-        <button type="submit" class="submit-button mt-3 btn btn-primary">Ruaj</button>
-    </EditForm>
+            <button type="submit" class="submit-button mt-3 btn btn-primary">Ruaj</button>
+        </EditForm>
+    }
 </div>

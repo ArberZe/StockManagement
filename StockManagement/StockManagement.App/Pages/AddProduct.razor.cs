@@ -24,6 +24,7 @@ namespace StockManagement.App.Pages
         public ProductViewModel ProductViewModel { get; set; } 
         public string Message { get; set; }
         private string MessageClass { get; set; } = String.Empty;
+        private bool isLoading { get; set; }
 
         public IEnumerable<CategoryViewModel> Categories { get; set; } = new List<CategoryViewModel>();
         public IEnumerable<CompanyListViewModel> Companies { get; set; } = new List<CompanyListViewModel>();
@@ -40,6 +41,7 @@ namespace StockManagement.App.Pages
 
         protected async Task HandleValidSubmit()
         {
+            isLoading = true;
             var response = await ProductDataService.CreateProduct(ProductViewModel);
             HandleResponse(response);
         }
@@ -48,12 +50,14 @@ namespace StockManagement.App.Pages
         {
             if (response.Success)
             {
+                isLoading = false;
                 Message = "Produkti u shtua!";
                 MessageClass = "alert-success";
                 NavigationManager.NavigateTo("/productoverview");
             }
             else
             {
+                isLoading = false;
                 Message = response.Message;
                 if (!string.IsNullOrEmpty(response.ValidationErrors))
                     Message += response.ValidationErrors;
