@@ -6,7 +6,8 @@ namespace StockManagement.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AccountController : ControllerBase
+    public class AccountController : Controller
+
     {
         private readonly IAuthenticationService _authenticationService;
         public AccountController(IAuthenticationService authenticationService)
