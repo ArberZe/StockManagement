@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
 using StockManagement.App.Contracts;
 using StockManagement.App.ViewModels;
+using System.Net.Http;
 using System.Net.Http.Headers;
+using static MudBlazor.CategoryTypes;
 
 namespace StockManagement.App.Pages
 {
@@ -56,6 +58,10 @@ namespace StockManagement.App.Pages
                 await JSRuntime.InvokeAsync<object>("saveAsFile", fileName, Convert.ToBase64String(fileBytes));
             }
         }
+
+        private bool enabled = true;
+
+
 
     }
 }

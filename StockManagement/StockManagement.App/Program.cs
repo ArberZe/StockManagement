@@ -6,6 +6,9 @@ using MudBlazor.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Server;
+using Microsoft.Extensions.Configuration;
+using StockManagement.Application.Models.Authentication;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,10 +25,10 @@ builder.Services.AddScoped<AuthenticationStateProvider, ServerAuthenticationStat
 
 builder.Services.AddSingleton(new HttpClient
 {
-    BaseAddress = new Uri("https://localhost:7017")
+    BaseAddress = new Uri(builder.Configuration["BaseUrl"])
 });
 
-builder.Services.AddHttpClient<IClient, Client>(client => client.BaseAddress = new Uri("https://localhost:7017"));
+builder.Services.AddHttpClient<IClient, Client>(client => client.BaseAddress = new Uri(builder.Configuration["BaseUrl"]));
 
 builder.Services.AddScoped<ICountryDataService, CountryDataService>();
 builder.Services.AddScoped<ICompanyDataService, CompanyDataService>();
@@ -35,11 +38,19 @@ builder.Services.AddScoped<IProductDataService, ProductDataService>();
 
 
 builder.Services.AddControllers();
+
+var config = builder.Configuration;
+var clientId = config.GetSection("GoogleSettings:ClientId").Value;
+
+
 builder.Services.AddAuthentication("Cookies").AddCookie(options =>
 {
-    //options.Cookie.Name = "Cookies";
     options.ExpireTimeSpan = TimeSpan.FromMinutes(120);
     options.SlidingExpiration = true;
+}).AddGoogle(options =>
+{
+    options.ClientId = builder.Configuration["GoogleSettings:ClientId"];
+    options.ClientSecret = builder.Configuration["GoogleSettings:ClientSecret"];
 });
 
 var app = builder.Build();

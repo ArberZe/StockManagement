@@ -1,5 +1,5 @@
-﻿@using System.Net.Http.Json
-@page "/productoverview"
+﻿@page "/productoverview"
+@using StockManagement.App.ViewModels;
 
 <div class="container-fluid d-flex flex-column align-items-center">
     <h3 class="mt-2">Produktet</h3>
@@ -12,76 +12,75 @@
             </MudButton>
             <br />
             <MudLink Href="/addproduct" Underline="Underline.Always" Class="btn">Shto Produkt</MudLink>
-    <br />
-
-    @if (Products.Count == 0)
-    {
-        <p><em>Loading...</em></p>
-        <MudProgressCircular Color="Color.Success" Indeterminate="true" />
-    }
-    else
-    {
-        <MudSimpleTable Style="overflow-x: auto; width: fit-content;">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Emri Produktit</th>
-                    <th>Cmimi i shitjes</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var product in Products)
-                {
-                    <tr>
-                        <td>@product.ProductId</td>
-                        <td>@product.Name </td>
-                        <td class="text-end" > @product.SellingPrice</td>
-                        <td>
-                            <a href="@($"editproduct/{product.ProductId}")">Edito</a>
-                            <br />
-                            <a href="@($"productdetails/{product.ProductId}")">Detajet</a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </MudSimpleTable>
-    }
-        </Authorized>
-
-    <NotAuthorized>
-            @if (Products.Count == 0)
+            <br />
+            @if (Products.Count() == 0)
             {
                 <p><em>Loading...</em></p>
                 <MudProgressCircular Color="Color.Success" Indeterminate="true" />
             }
             else
             {
-                <MudSimpleTable Style="overflow-x: auto; width: fit-content;">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Emri Produktit</th>
-                            <th>Cmimi i shitjes</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var product in Products)
-                        {
-                            <tr>
-                                <td>@product.ProductId</td>
-                                <td>@product.Name </td>
-                                <td class="text-end"> @product.SellingPrice</td>
-                                <td>
-                                    <a href="@($"productdetails/{product.ProductId}")">Detajet</a>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </MudSimpleTable>
+                <MudTable Items="@Products" Hover="true" SortLabel="Sort By">
+                    <HeaderContent>
+                        <MudTh><MudTableSortLabel SortBy="new Func<ProductListViewModel, object>(x=>x.ProductId)">Nr</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel InitialDirection="SortDirection.Ascending" SortBy="new Func<ProductListViewModel, object>(x=>x.Name)">Emri</MudTableSortLabel></MudTh>
+                        <MudTh><MudTableSortLabel Enabled="@enabled" SortBy="new Func<ProductListViewModel, object>(x=>x.SellingPrice)">Cmimi shitjes</MudTableSortLabel></MudTh>
+                        <MudTh>Action</MudTh>
+                    </HeaderContent>
+                    <RowTemplate Context="item">
+                        <MudTd DataLabel="Nr">@item.ProductId</MudTd>
+                        <MudTd DataLabel="Name">@item.Name</MudTd>
+                        <MudTd DataLabel="SellingPrice">@item.SellingPrice</MudTd>
+                        <MudTd DataLabel="Action">
+                            <a href="@($"productdetails/{@item.ProductId}")">Detajet</a>
+                            <br />
+                            <a href="@($"editproduct/{@item.ProductId}")">Edito</a>
+                        </MudTd>
+                    </RowTemplate>
+                    <PagerContent>
+                        <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+                    </PagerContent>
+                </MudTable>
             }
-    </NotAuthorized>
+        </Authorized>
+
+
+    <NotAuthorized>
+    @if (Products.Count() == 0)
+    {
+        <p><em>Loading...</em></p>
+        <MudProgressCircular Color="Color.Success" Indeterminate="true" />
+    }
+    else
+    {
+        <MudTable Items="@Products" Hover="true" SortLabel="Sort By">
+            <HeaderContent>
+                <MudTh><MudTableSortLabel SortBy="new Func<ProductListViewModel, object>(x=>x.ProductId)">Nr</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel InitialDirection="SortDirection.Ascending" SortBy="new Func<ProductListViewModel, object>(x=>x.Name)">Emri</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel Enabled="@enabled" SortBy="new Func<ProductListViewModel, object>(x=>x.SellingPrice)">Cmimi shitjes</MudTableSortLabel></MudTh>
+                <MudTh>Action</MudTh>
+            </HeaderContent>
+            <RowTemplate Context="item" >
+                        <MudTd DataLabel="Nr">@item.ProductId</MudTd>
+                <MudTd DataLabel="Name">@item.Name</MudTd>
+                        <MudTd DataLabel="SellingPrice">@item.SellingPrice</MudTd>
+                        <MudTd DataLabel="Action"><a href="@($"productdetails/{@item.ProductId}")">Detajet</a></MudTd>
+            </RowTemplate>
+            <PagerContent>
+                <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+            </PagerContent>
+        </MudTable>
+    }
+        </NotAuthorized>
+
     </AuthorizeView>
+
 </div>
+
+
+
+
+
+
+
 
