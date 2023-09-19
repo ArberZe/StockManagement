@@ -26,5 +26,11 @@ namespace StockManagement.Api.Controllers
         {
             return Ok(await _authenticationService.RegisterAsync(request));
         }
+
+        [HttpPost("logout")]
+        public async Task LogoutAsync()
+        {
+            await _authenticationService.SignOutAsync();
+        }
     }
 }

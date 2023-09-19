@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Mvc;
 
 namespace StockManagement.Identity.Services
 {
@@ -92,6 +93,11 @@ namespace StockManagement.Identity.Services
             {
                 throw new Exception($"Email {request.Email } është në përdorim.");
             }
+        }
+
+        public async Task SignOutAsync()
+        {
+            await _signInManager.SignOutAsync();
         }
 
         private async Task<JwtSecurityToken> GenerateToken(ApplicationUser user)

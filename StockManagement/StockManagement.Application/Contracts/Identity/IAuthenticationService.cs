@@ -6,5 +6,6 @@ namespace StockManagement.Application.Contracts.Identity
     {
         Task<AuthenticationResponse> AuthenticateAsync(AuthenticationRequest request);
         Task<RegistrationResponse> RegisterAsync(RegistrationRequest request);
+        Task SignOutAsync();
     }
 }
