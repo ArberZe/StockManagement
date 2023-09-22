@@ -27,13 +27,18 @@ namespace StockManagement.App.Pages
         protected string Message { get; set; } = string.Empty;
         private string MessageClass { get; set; } = String.Empty;
 
+        private bool isLoading { get; set; } = false;
+
         [Parameter]
         public string? Id { get; set; }
 
 
         protected async override Task OnInitializedAsync()
         {
-            ProductViewModel = await ProductDataService.GetProductById(int.Parse(Id));
+
+            isLoading = true;
+            var result = await ProductDataService.GetProductById(int.Parse(Id));
+            HandleGetResponse(result);
             Categories = await CategoryDataService.GetAllCategories();
             Companies = await CompanyDataService.GetAllCompanies();
         }
@@ -42,6 +47,23 @@ namespace StockManagement.App.Pages
         {
             var response = await ProductDataService.UpdateProduct(ProductViewModel);
             HandleResponse(response);
+        }
+
+        private void HandleGetResponse(ApiResponse<ProductViewModel> response)
+        {
+            if (response.Success)
+            {
+                isLoading = false;
+                ProductViewModel = response.Data;
+            }
+            else
+            {
+                Message = response.Message;
+                if (!string.IsNullOrEmpty(response.ValidationErrors))
+                    Message += response.ValidationErrors;
+
+                MessageClass = "alert-danger";
+            }
         }
 
         private void HandleResponse(ApiResponse<int> response)

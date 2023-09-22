@@ -28,11 +28,28 @@ namespace StockManagement.App.Services
             return mappedProducts.ToList();
         }
 
-        public async Task<ProductViewModel> GetProductById(int id)
+        public async Task<ApiResponse<ProductViewModel>> GetProductById(int id)
         {
-            var result = await _client.GetProductByIdAsync(id);
-            var mappedProduct = _mapper.Map<ProductViewModel>(result.Product);
-            return mappedProduct;
+            try
+            {
+                ApiResponse<ProductViewModel> apiResponse = new();
+                var result = await _client.GetProductByIdAsync(id);
+                if (result.Success)
+                {
+                    apiResponse.Success = true;
+                    apiResponse.Data = _mapper.Map<ProductViewModel>(result.Product);
+                }
+                else
+                {
+                    apiResponse.Data = null;
+                    apiResponse.Message = result.Message;
+                }
+                return apiResponse;
+            }
+            catch(ApiException ex)
+            {
+                return ConvertApiExceptions<ProductViewModel>(ex);
+            }
         }
 
         public async Task<ApiResponse<ProductDetailsViewModel>> GetProductDetailsById(int id)
