@@ -54,7 +54,15 @@ namespace StockManagement.Api.Controllers
         public async Task<ActionResult<CreateProductCommandResponse>> Create([FromBody] CreateProductCommand createProductCommand)
         {
             var response = await _mediator.Send(createProductCommand);
-            return Ok(response);
+            if (response.Success)
+            {
+                return Ok(response);
+            }
+            if (response.Success == false && response.ValidationErrors == null)
+            {
+                return NotFound(response.Message);
+            }
+            return BadRequest(response.ValidationErrors);
         }
 
         [HttpPut(Name = "UpdateProduct")]

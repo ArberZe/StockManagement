@@ -40,7 +40,7 @@ namespace StockManagement.App.Services.Base
             }
             else
             {
-                return new ApiResponse<Guid>() { Message = "Dicka deshtoi, provoni perseri.", ValidationErrors = ex.Response, Success = false };
+                return new ApiResponse<Guid>() { Message = $"Dicka deshtoi, provoni perseri. {ex.Message}", ValidationErrors = ex.Response, Success = false };
             }
         }
 
