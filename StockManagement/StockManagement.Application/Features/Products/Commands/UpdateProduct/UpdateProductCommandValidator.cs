@@ -16,6 +16,14 @@ namespace StockManagement.Application.Features.Products.Commands.UpdateProduct
                 .NotEmpty().WithMessage("{PropertyName} eshte fushe e detyrueshme.")
                 .NotNull()
                 .GreaterThan(0);
+
+            RuleFor(p => p.CompanyId)
+                .NotEmpty().WithMessage("Zgjedh firmën.")
+                .NotNull();
+
+            RuleFor(p => p.CategoryId)
+                .NotEmpty().WithMessage("Zgjedh kategorinë.")
+                .NotNull();
         }
     }
 }

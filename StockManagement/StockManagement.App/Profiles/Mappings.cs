@@ -25,12 +25,12 @@ namespace StockManagement.App.Profiles
             CreateMap<ProductViewModel, UpdateProductCommand>();
             CreateMap<ProductDetailsVm, ProductDetailsViewModel>();
 
+            //CreateMap<ProductDetailsVm, ProductViewModel>();
+
             CreateMap<ProductDetailsVm, ProductViewModel>()
-                .ForMember(dest => dest.CategoryId,
-                act => act.MapFrom(src => src.Category.CategoryId));
-            CreateMap<ProductDetailsVm, ProductViewModel>()
-                .ForMember(dest => dest.CompanyId,
-                act => act.MapFrom(src => src.Company.CompanyId));
+                .ForMember(dest => dest.CategoryId, act => act.MapFrom(src => src.Category.CategoryId))
+                .ForMember(dest => dest.CompanyId, act => act.MapFrom(src => src.Company.CompanyId));
+
 
             CreateMap<CountryListVm, CountryListViewModel>();
             CreateMap<CountryViewModel, CreateCountryCommand>();
