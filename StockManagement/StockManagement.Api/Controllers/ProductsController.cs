@@ -33,10 +33,21 @@ namespace StockManagement.Api.Controllers
 
         [AllowAnonymous]
         [HttpGet("{id}", Name = "GetProductById")]
-        public async Task<ActionResult<ProductDetailsVm>> GetProductById(int id)
+        public async Task<ActionResult<GetProductDetailsQueryResponse>> GetProductById(int id)
         {
-            var getProductDetailQuery = new GetProductDetailsQuery() { ProductId = id};
-            return Ok(await _mediator.Send(getProductDetailQuery));
+            var response = await _mediator.Send(new GetProductDetailsQuery() { ProductId = id });
+
+            if (response.Success)
+            {
+                return Ok(response);
+            }
+            if (response.Success == false)
+            {
+                return NotFound(response.Message);
+            }
+            return BadRequest();
+
+            //return Ok(result);
         }
 
         [HttpPost(Name = "AddProduct")]

@@ -8,7 +8,7 @@ namespace StockManagement.App.Contracts
     {
         Task<List<ProductListViewModel>> GetAllProducts();
         Task<ProductViewModel> GetProductById(int id);
-        Task<ProductDetailsViewModel> GetProductDetailsById(int id);
+        Task<ApiResponse<ProductDetailsViewModel>> GetProductDetailsById(int id);
         Task<ApiResponse<int>> UpdateProduct(ProductViewModel productViewModel);
         Task<ApiResponse<ProductDto>> CreateProduct(ProductViewModel productViewModel);
     }

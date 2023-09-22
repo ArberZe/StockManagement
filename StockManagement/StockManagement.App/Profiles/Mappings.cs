@@ -24,6 +24,7 @@ namespace StockManagement.App.Profiles
             //CreateMap<ProductDetailsViewModel, UpdateProductCommand>().ReverseMap();
             CreateMap<ProductViewModel, UpdateProductCommand>();
             CreateMap<ProductDetailsVm, ProductDetailsViewModel>();
+
             CreateMap<ProductDetailsVm, ProductViewModel>()
                 .ForMember(dest => dest.CategoryId,
                 act => act.MapFrom(src => src.Category.CategoryId));
@@ -39,6 +40,9 @@ namespace StockManagement.App.Profiles
 
             CreateMap<CompanyListVm, CompanyListViewModel>();
             CreateMap<CompanyViewModel, CreateCompanyCommand>();
+
+            CreateMap<ProductDetailsVm, ProductDetailsViewModel>();
+            //CreateMap<GetProductDetailsQueryResponse, ProductViewModel>();
         }
     }
 }

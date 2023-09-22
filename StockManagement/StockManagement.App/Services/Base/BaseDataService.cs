@@ -36,7 +36,7 @@ namespace StockManagement.App.Services.Base
             }
             else if (ex.StatusCode == 404)
             {
-                return new ApiResponse<Guid>() { Message = "Nuk u gjet asnje rezultat.", Success = false };
+                return new ApiResponse<Guid>() { Message = ex.Message , Success = false };
             }
             else
             {

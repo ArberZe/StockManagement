@@ -23,6 +23,7 @@ public partial class Program {
                .ConfigureServices()
                .ConfigurePipeline();
 
+        app.UseSerilogRequestLogging();
 
         await app.ResetDatabaseAsync();
 
