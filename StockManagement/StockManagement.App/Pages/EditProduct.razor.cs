@@ -66,7 +66,7 @@ namespace StockManagement.App.Pages
             }
         }
 
-        private void HandleResponse(ApiResponse<int> response)
+        private void HandleResponse(ApiResponse<string> response)
         {
             if (response.Success)
             {

@@ -79,18 +79,32 @@ namespace StockManagement.App.Services
             return mappedProduct;*/
         }
 
-        public async Task<ApiResponse<int>> UpdateProduct(ProductViewModel productViewModel)
+        public async Task<ApiResponse<string>> UpdateProduct(ProductViewModel productViewModel)
         {
             await AddBearerToken();
             try
             {
+                ApiResponse<string> apiResponse = new();
                 UpdateProductCommand updateProductCommand = _mapper.Map<UpdateProductCommand>(productViewModel);
-                await _client.UpdateProductAsync(updateProductCommand);
-                return new ApiResponse<int>() { Success = true };
+                var updateProductCommandResponse = await _client.UpdateProductAsync(updateProductCommand);
+                if (updateProductCommandResponse.Success)
+                {
+                    apiResponse.Success = true;
+                    apiResponse.Message = updateProductCommandResponse.Message;
+                }
+                else
+                {
+                    apiResponse.Data = null;
+                    foreach (var error in updateProductCommandResponse.ValidationErrors)
+                    {
+                        apiResponse.ValidationErrors += error + Environment.NewLine;
+                    }
+                }
+                return apiResponse;
             }
             catch (ApiException ex)
             {
-                return ConvertApiExceptions<int>(ex);
+                return ConvertApiExceptions<string>(ex);
             }
         }
 

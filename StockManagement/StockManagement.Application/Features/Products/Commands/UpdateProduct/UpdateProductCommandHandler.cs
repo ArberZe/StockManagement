@@ -44,6 +44,7 @@ namespace StockManagement.Application.Features.Products.Commands.UpdateProduct
             _mapper.Map(request, productToUpdate, typeof(UpdateProductCommand), typeof(Product));
 
             await _productRepository.UpdateAsync(productToUpdate);
+            updateProductCommandResponse.Message = "Produkti u editua me sukses";
 
             return updateProductCommandResponse;
         }
