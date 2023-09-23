@@ -12,9 +12,9 @@ namespace StockManagement.Application.Features.Companies.Commands.CreateCompany
         public CreateCompanyCommandValidator()
         {
             RuleFor(p => p.Name)
-            .NotEmpty().WithMessage("{PropertyName} eshte fushe e detyrueshme.")
+            .NotEmpty().WithMessage("Shkruani emrin.")
             .NotNull()
-            .MaximumLength(50).WithMessage("{PropertyName} nuk mund te kete me shume se 50 karaktere.");
+            .MaximumLength(50).WithMessage("Emri nuk mund te kete me shume se 50 karaktere.");
         }
     }
 }

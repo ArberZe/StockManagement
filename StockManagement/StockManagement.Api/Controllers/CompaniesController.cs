@@ -29,7 +29,11 @@ namespace StockManagement.Api.Controllers
         public async Task<ActionResult<CreateCompanyCommandResponse>> Create([FromBody] CreateCompanyCommand createCompanyCommand)
         {
             var response = await _mediator.Send(createCompanyCommand);
-            return Ok(response);
+            if (response.Success)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response.ValidationErrors);
         }
     }
 }
