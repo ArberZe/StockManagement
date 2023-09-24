@@ -1,7 +1,7 @@
 ﻿@page "/addcountry"
 
 <div class="container-fluid d-flex flex-column align-items-center">
-    <h3 class="mt-2">Shtet i re</h3>
+    <h3 class="mt-2">Shtet i ri</h3>
 
     @if (isLoading)
     {
@@ -12,7 +12,9 @@
     {
         <div class="alert @MessageClass" role="alert">@Message</div>
 
+
         <EditForm Model="@CountryViewModel" OnValidSubmit="@HandleValidSubmit">
+            <DataAnnotationsValidator />
 
             <div class="form-group">
                 <label for="name" class="col-sm-6 form-label">Emri shtetit:</label>
