@@ -15,7 +15,6 @@
         <EditForm Model="@ProductViewModel" OnValidSubmit="@HandleValidSubmit">
 
             <DataAnnotationsValidator />
-            <ValidationSummary></ValidationSummary>
 
             <div class="form-group">
                 <label for="name" class="col-sm-6 form-label">Emri produktit:</label>
@@ -52,7 +51,7 @@
             <div class="form-group">
                 <label for="sellingprice" class="col-sm-6 form-label">Cmimi shitjes:</label>
                 <div class="col-sm-8">
-                    <InputNumber id="name" class="form-control" @bind-Value="@ProductViewModel.SellingPrice" placeholder="Cmimi"></InputNumber>
+                    <InputNumber id="sellingprice" class="form-control" @bind-Value="@ProductViewModel.SellingPrice" placeholder="Cmimi"></InputNumber>
                     <ValidationMessage For="@(() => ProductViewModel.SellingPrice)" />
                 </div>
             </div>

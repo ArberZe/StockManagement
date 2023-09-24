@@ -36,11 +36,11 @@ namespace StockManagement.App.Services.Base
             }
             else if (ex.StatusCode == 404)
             {
-                return new ApiResponse<Guid>() { Message = "Nuk u gjet asnje rezultat.", Success = false };
+                return new ApiResponse<Guid>() { Message = ex.Message , Success = false };
             }
             else
             {
-                return new ApiResponse<Guid>() { Message = "Dicka deshtoi, provoni perseri.", ValidationErrors = ex.Response, Success = false };
+                return new ApiResponse<Guid>() { Message = $"Dicka deshtoi, provoni perseri. {ex.Message}", ValidationErrors = ex.Response, Success = false };
             }
         }
 

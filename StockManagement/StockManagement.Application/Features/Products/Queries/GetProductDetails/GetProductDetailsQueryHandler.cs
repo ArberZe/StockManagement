@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using StockManagement.Application.Contracts.Persistence;
+using StockManagement.Application.Responses;
 using StockManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace StockManagement.Application.Features.Products.Queries.GetProductDetails
 {
-    public class GetProductDetailsQueryHandler : IRequestHandler<GetProductDetailsQuery, ProductDetailsVm>
+    public class GetProductDetailsQueryHandler : IRequestHandler<GetProductDetailsQuery, GetProductDetailsQueryResponse>
     {
         private readonly IAsyncRepository<Product> _productRepository;
         private readonly IAsyncRepository<Category> _categoryRepository;
@@ -27,23 +28,37 @@ namespace StockManagement.Application.Features.Products.Queries.GetProductDetail
             _categoryRepository = categoryRepository;
             _companyRepository = companyRepository;
         }
-        public async Task<ProductDetailsVm> Handle(GetProductDetailsQuery request, CancellationToken cancellationToken)
+        public async Task<GetProductDetailsQueryResponse> Handle(GetProductDetailsQuery request, CancellationToken cancellationToken)
         {
+            var getProductDetailsQueryResponse = new GetProductDetailsQueryResponse();
+
             var product = await _productRepository.GetByIdAsync(request.ProductId);
-            var productDetailDto = _mapper.Map<ProductDetailsVm>(product);
-            var category = new Category() { };
-            var company = new Company() { };    
+            var productDetailDto = _mapper.Map<ProductDetailsVm>(product);  
 
             if (product != null)
             {
-                category = await _categoryRepository.GetByIdAsync(product.CategoryId);
-                company = await _companyRepository.GetByIdAsync(product.CompanyId);
+                /*var category = new Category() { };
+                var company = new Company() { };*/
+
+                var category = await _categoryRepository.GetByIdAsync(product.CategoryId);
+                var company = await _companyRepository.GetByIdAsync(product.CompanyId);
+
+                productDetailDto.Category = _mapper.Map<CategoryDto>(category);
+                productDetailDto.Company = _mapper.Map<CompanyDto>(company);
+
+                getProductDetailsQueryResponse.Success = true;
+                getProductDetailsQueryResponse.Product = productDetailDto;
+                return getProductDetailsQueryResponse;
             }
 
-            productDetailDto.Category = _mapper.Map<CategoryDto>(category);
-            productDetailDto.Company = _mapper.Map<CompanyDto>(company);
+            getProductDetailsQueryResponse.Success = false;
+            getProductDetailsQueryResponse.Message = "Produkti nuk u gjet!";
 
-            return productDetailDto;
+            return getProductDetailsQueryResponse;
+
+            //return Result<ProductDetailsVm>.Success(productDetailDto);
+
+            //return productDetailDto;
         }
     }
 }

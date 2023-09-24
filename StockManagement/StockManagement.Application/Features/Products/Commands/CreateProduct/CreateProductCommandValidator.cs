@@ -8,13 +8,21 @@ public class CreateProductCommandValidator: AbstractValidator<CreateProductComma
     public CreateProductCommandValidator()
     {
         RuleFor(p => p.Name)
-            .NotEmpty().WithMessage("{PropertyName} eshte fushe e detyrueshme.")
+            .NotEmpty().WithMessage("Plotëso emrin.")
             .NotNull()
-            .MaximumLength(50).WithMessage("{PropertyName} nuk mund te kete me shume se 50 karaktere.");
+            .MaximumLength(50).WithMessage("Emri nuk mund te kete me shume se 50 karaktere.");
 
         RuleFor(p => p.SellingPrice)
-            .NotEmpty().WithMessage("{PropertyName} eshte fushe e detyrueshme.")
+            .NotEmpty().WithMessage("Cmimi shitjes është fushë e detyrueshme.")
             .NotNull()
-            .GreaterThan(0);
+            .GreaterThan(0).WithMessage("Cmimi shitjes nuk mund të jetë zero");
+
+        RuleFor(p => p.CompanyId)
+            .NotEmpty().WithMessage("Zgjedh firmën.")
+            .NotNull();
+
+        RuleFor(p => p.CategoryId)
+            .NotEmpty().WithMessage("Zgjedh kategorinë.")
+            .NotNull();
     }
 }

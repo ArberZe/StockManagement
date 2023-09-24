@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using StockManagement.App.Contracts;
 using StockManagement.App.Services.Base;
 using StockManagement.App.ViewModels;
+using StockManagement.Application.Features.Products.Commands.CreateProduct;
 using StockManagement.Application.Features.Products.Commands.UpdateProduct;
 using System.Linq;
 
@@ -27,32 +28,83 @@ namespace StockManagement.App.Services
             return mappedProducts.ToList();
         }
 
-        public async Task<ProductViewModel> GetProductById(int id)
+        public async Task<ApiResponse<ProductViewModel>> GetProductById(int id)
         {
-            var selectedProduct = await _client.GetProductByIdAsync(id);
-            var mappedProduct = _mapper.Map<ProductViewModel>(selectedProduct);
-            return mappedProduct;
+            try
+            {
+                ApiResponse<ProductViewModel> apiResponse = new();
+                var result = await _client.GetProductByIdAsync(id);
+                if (result.Success)
+                {
+                    apiResponse.Success = true;
+                    apiResponse.Data = _mapper.Map<ProductViewModel>(result.Product);
+                }
+                else
+                {
+                    apiResponse.Data = null;
+                    apiResponse.Message = result.Message;
+                }
+                return apiResponse;
+            }
+            catch(ApiException ex)
+            {
+                return ConvertApiExceptions<ProductViewModel>(ex);
+            }
         }
 
-        public async Task<ProductDetailsViewModel> GetProductDetailsById(int id)
+        public async Task<ApiResponse<ProductDetailsViewModel>> GetProductDetailsById(int id)
         {
-            var selectedProduct = await _client.GetProductByIdAsync(id);
+            try
+            {
+                ApiResponse<ProductDetailsViewModel> apiResponse = new();
+                var result = await _client.GetProductByIdAsync(id);
+                if(result.Success)
+                {
+                    apiResponse.Success = true;
+                    apiResponse.Data = _mapper.Map<ProductDetailsViewModel>(result.Product);
+                }
+                else
+                {
+                    apiResponse.Data = null;
+                    apiResponse.Message = result.Message;
+                }
+                return apiResponse;
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiExceptions<ProductDetailsViewModel>(ex);
+            }
+            /*var selectedProduct = await _client.GetProductByIdAsync(id);
             var mappedProduct = _mapper.Map<ProductDetailsViewModel>(selectedProduct);
-            return mappedProduct;
+            return mappedProduct;*/
         }
 
-        public async Task<ApiResponse<int>> UpdateProduct(ProductViewModel productViewModel)
+        public async Task<ApiResponse<string>> UpdateProduct(ProductViewModel productViewModel)
         {
             await AddBearerToken();
             try
             {
+                ApiResponse<string> apiResponse = new();
                 UpdateProductCommand updateProductCommand = _mapper.Map<UpdateProductCommand>(productViewModel);
-                await _client.UpdateProductAsync(updateProductCommand);
-                return new ApiResponse<int>() { Success = true };
+                var updateProductCommandResponse = await _client.UpdateProductAsync(updateProductCommand);
+                if (updateProductCommandResponse.Success)
+                {
+                    apiResponse.Success = true;
+                    apiResponse.Message = updateProductCommandResponse.Message;
+                }
+                else
+                {
+                    apiResponse.Data = null;
+                    foreach (var error in updateProductCommandResponse.ValidationErrors)
+                    {
+                        apiResponse.ValidationErrors += error + Environment.NewLine;
+                    }
+                }
+                return apiResponse;
             }
             catch (ApiException ex)
             {
-                return ConvertApiExceptions<int>(ex);
+                return ConvertApiExceptions<string>(ex);
             }
         }
 

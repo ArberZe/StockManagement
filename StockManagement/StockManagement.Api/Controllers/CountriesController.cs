@@ -33,7 +33,11 @@ namespace StockManagement.Api.Controllers
         public async Task<ActionResult<CreateCountryCommandResponse>> Create([FromBody] CreateCountryCommand createCountryCommand)
         {
             var response = await _mediator.Send(createCountryCommand);
-            return Ok(response);
+            if (response.Success)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response.ValidationErrors);
         }
     }
 }

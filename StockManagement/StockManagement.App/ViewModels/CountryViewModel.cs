@@ -1,8 +1,12 @@
-﻿namespace StockManagement.App.ViewModels
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace StockManagement.App.ViewModels
 {
     public class CountryViewModel
     {
-        public int CountryId { get; set; }
-        public string Name { get; set; } = string.Empty;
+        //public int CountryId { get; set; }
+
+        [Required(ErrorMessage = "Shkruaj emrin")]
+        public string Name { get; set; }
     }
 }
